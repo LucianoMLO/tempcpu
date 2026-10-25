@@ -39,6 +39,8 @@ Spec e estado de verificação por critério: `docs/SPEC-laboratorio.md` · deci
 - `docs/SPEC-licoes-novas.md`: classificação, agrupamento/PCA, Ridge/Lasso, Isolation Forest, validação cruzada, boosting. Nada implementado.
 - `docs/PRONTIDAO.md`: notas por área, lista "para lançar hoje" e plano de divulgação. Bloqueios: sem `LICENSE`, sem commit, sem executável.
 
+- **Banco de questões (B-0):** `lab/questoes.py` (50 questões, 10 por tema, 2 de nivelamento e 8 da final por tema) e `tests_lab/test_questoes.py` (critérios B1 a B5 e extras: termos marcados, sem jargão, correta nunca a mais longa em mais da metade). Ambos fora do Git de propósito (respostas). **Pendente: revisão humana do conteúdo** e do destino `revisar` (lição, passo) de cada questão.
+
 ## Próximas etapas: lançamento público (planejado, não iniciado)
 Detalhe e checklist completo na nota do projeto no cérebro (`20-projetos/tempcpu.md`).
 0. Decisões de produto: nome, licença, compatibilidade declarada, gratuito.

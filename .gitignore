@@ -8,3 +8,7 @@ __pycache__/
 *.db-wal
 *.db-shm
 *.log
+
+# Banco de questões da avaliação: as respostas NÃO podem ficar públicas (ver docs/SPEC-avaliacao.md)
+lab/questoes.py
+tests_lab/test_questoes.py

@@ -133,6 +133,9 @@ Verificação online de certificados; contas ou login; envio de nota a qualquer 
 5. **B-4** Revisão independente, roteiro manual B17, atualização de README, ONDE_ESTAMOS e Sobre/privacidade.
 Esforço estimado: B-0 é o maior (conteúdo); B-1 a B-3 são código moderado. Paralelizável: B-0 (conteúdo) com B-1 (núcleo).
 
+## Banco de questões: onde fica (2026-10-25)
+O banco (`lab/questoes.py`, 50 questões, versão 1.1) **não é versionado no repositório público**: ele traz as respostas, e na fase online a correção é feita no servidor. Está no `.gitignore` (junto de `tests_lab/test_questoes.py`). Ele será levado para o Worker (D1 ou arquivo privado) na implementação. Se as questões do **nivelamento** forem abertas depois, só essas 10 poderão ir ao repositório.
+
 ## Decisões (2026-10-25)
 1. **Emissor:** Mais Valor Consultoria e Serviços (nome da empresa no certificado; o texto exato da razão social e o CNPJ são informados pelo autor antes da implementação).
 2. **Acreditação:** o certificado é emitido pela Mais Valor, sem chancela de instituição de ensino. O aviso fixo passa a dizer "emitido pela Mais Valor Consultoria e Serviços; não é curso regulamentado nem carga horária oficial". Não alegar acreditação que não existe.
