@@ -54,13 +54,25 @@ Motivos e medições: [ADR 0002](docs/adr/0002-fontes-sem-driver-de-kernel.md) (
 
 Medido no Ryzen 7 4800HS, minimizado e gravando o histórico: cerca de **19 MB de RAM e 0,3% de um núcleo**. Com a janela aberta, ~40 MB. Com a janela minimizada o diagnóstico roda a cada 30 s (alimenta o histórico), o ícone é redesenhado a cada 6 s no máximo e a memória sem uso volta para o Windows a cada minuto. Só roda uma cópia por vez: abrir de novo apenas mostra a janela da que já está rodando.
 
-## Instalar
+## Instalar (passo a passo, sem precisar entender de programação)
+
+**Antes de começar:** o TempCPU ainda não tem instalador. Ele roda a partir dos arquivos deste projeto e precisa do **Python**, um programa gratuito. Funciona no **Windows 11**; foi testado só em notebook ASUS com processador AMD Ryzen. Em outros computadores pode mostrar menos informações.
+
+1. **Instale o Python** (só se ainda não tiver): entre em <https://www.python.org/downloads/>, clique em **Download Python** e abra o arquivo baixado. Clique em **Install Now** e espere terminar.
+2. **Baixe o TempCPU:** nesta página do GitHub, clique no botão verde **Code** e depois em **Download ZIP**. Quando baixar, clique com o botão direito no arquivo e escolha **Extrair tudo**. Isso cria uma pasta; abra essa pasta.
+3. **Prepare (uma vez só):** dê um duplo clique em **`instalar.bat`**. Uma janela preta aparece, baixa o que falta e termina com a mensagem "Pronto!". Leva 1 ou 2 minutos e precisa de internet.
+4. **Abra o TempCPU:** dê um duplo clique em **`iniciar.bat`**. O Windows pergunta se você permite que o programa faça alterações; clique em **Sim** (ele precisa disso só para ler a temperatura, não altera nada no seu computador). A temperatura aparece na janela, na barra de tarefas e perto do relógio.
+
+**Se algo der errado:** o Windows pode avisar "O Windows protegeu o seu computador" ao abrir o `.bat`. Clique em **Mais informações** e depois em **Executar assim mesmo**. Se o número ficar parado ou aparecer "sem leitura", veja a seção "De onde vem a temperatura" mais abaixo.
+
+<details><summary>Para quem programa (instalação manual)</summary>
 
 ```powershell
 py -m venv .venv
 .venv\Scripts\pip install -r requirements.txt
 copy .env.example .env
 ```
+</details>
 
 ## Usar
 
