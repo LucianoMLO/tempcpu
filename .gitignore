@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.venv-lab/
+.dev.vars
+*.db
+*.db-wal
+*.db-shm
+*.log

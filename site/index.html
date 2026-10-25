@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TempCPU — temperatura do processador</title>
+<meta name="description" content="TempCPU mostra a temperatura da CPU na barra de tarefas do Windows, sem instalar driver. / TempCPU shows your CPU temperature on the Windows taskbar, with no driver.">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<header class="topo">
+  <a class="marca" href="#inicio"><span class="ponto"></span>TempCPU</a>
+  <nav>
+    <a href="#recursos"><span class="pt">Recursos</span><span class="en">Features</span></a>
+    <a href="#como"><span class="pt">Como funciona</span><span class="en">How it works</span></a>
+    <a href="#laboratorio"><span class="pt">Laboratório</span><span class="en">Lab</span></a>
+    <a href="#requisitos"><span class="pt">Requisitos</span><span class="en">Requirements</span></a>
+    <a href="#apoio"><span class="pt">Apoie</span><span class="en">Support</span></a>
+    <a href="#faq">FAQ</a>
+    <button id="idioma" type="button" aria-label="Idioma / Language"><span class="pt">English</span><span class="en">Português</span></button>
+  </nav>
+</header>
+
+<main id="inicio">
+  <section class="heroi">
+    <div class="texto">
+      <h1><span class="pt">A temperatura do seu processador, sempre à vista.</span><span class="en">Your processor's temperature, always in sight.</span></h1>
+      <p class="lead"><span class="pt">O número e a cor aparecem direto na barra de tarefas. Quando esquenta, o TempCPU diz o que pode estar causando e como baixar, e guarda o histórico no seu computador.</span><span class="en">The number and its color show right on the taskbar. When it heats up, TempCPU tells you what may be causing it and how to bring it down, and keeps a history on your own computer.</span></p>
+      <div class="acoes">
+        <span class="botao desativado" role="button" aria-disabled="true"><span class="pt">Download — em breve</span><span class="en">Download — coming soon</span></span>
+        <a class="botao claro" href="#como"><span class="pt">Ver como funciona</span><span class="en">See how it works</span></a>
+      </div>
+      <p class="nota"><span class="pt">Para Windows 11 (testado só nele). Sem driver de núcleo, sem instalar nada no sistema.</span><span class="en">For Windows 11 (tested only on it). No kernel driver, nothing installed into the system.</span></p>
+    </div>
+    <figure class="imagem">
+      <img src="img/tempcpu.png" alt="Janela principal do TempCPU com temperatura, gráfico por zonas, processos e sugestões / TempCPU main window with temperature, zone chart, processes and suggestions" width="980" height="620">
+      <figcaption><span class="pt">Capturas com dados de demonstração.</span><span class="en">Screenshots use demo data.</span></figcaption>
+    </figure>
+  </section>
+
+  <section id="recursos">
+    <h2><span class="pt">O que ele faz por você</span><span class="en">What it does for you</span></h2>
+    <div class="grade">
+      <article class="cartao"><h3><span class="pt">Temperatura na barra de tarefas</span><span class="en">Temperature on the taskbar</span></h3>
+        <p><span class="pt">Número e cor da faixa (normal, atenção, quente, crítico) no botão do app e no ícone da bandeja.</span><span class="en">Number and zone color (normal, attention, hot, critical) on the app button and tray icon.</span></p></article>
+      <article class="cartao"><h3><span class="pt">Gráfico por zonas</span><span class="en">Zone chart</span></h3>
+        <p><span class="pt">Os últimos minutos com as faixas coloridas e a linha de desligamento do firmware.</span><span class="en">The last minutes with colored bands and the firmware shutdown line.</span></p></article>
+      <article class="cartao"><h3><span class="pt">Diagnóstico e sugestões</span><span class="en">Diagnosis and suggestions</span></h3>
+        <p><span class="pt">Mostra quais programas usam a CPU e sugere o que fazer. O app só sugere: não muda nada no seu sistema sozinho.</span><span class="en">Shows which programs use the CPU and suggests what to do. The app only suggests: it never changes your system by itself.</span></p></article>
+      <article class="cartao"><h3><span class="pt">Histórico no seu computador</span><span class="en">History on your computer</span></h3>
+        <p><span class="pt">Um registro por minuto, com o motivo do aquecimento, guardado em um banco local (SQLite). Gráfico com várias variáveis ao mesmo tempo.</span><span class="en">One record per minute, with the reason for heating, stored in a local SQLite database. Chart with several variables at once.</span></p></article>
+      <article class="cartao"><h3><span class="pt">Leve</span><span class="en">Light</span></h3>
+        <p><span class="pt">Em uso normal fica perto de 0,3% de CPU e 13 MB de memória (medido no computador de desenvolvimento).</span><span class="en">In normal use it stays near 0.3% CPU and 13 MB of memory (measured on the development computer).</span></p></article>
+      <article class="cartao"><h3><span class="pt">Legendas</span><span class="en">Tooltips</span></h3>
+        <p><span class="pt">Pare o mouse sobre GPU, SoC, frequência e ventoinha para ver o que cada um significa.</span><span class="en">Hover over GPU, SoC, frequency and fan to see what each one means.</span></p></article>
+    </div>
+  </section>
+
+  <section id="historico" class="duas">
+    <figure class="imagem">
+      <img src="img/historico.png" alt="Janela de histórico com a temperatura ao longo de cinco dias / History window showing temperature over five days" loading="lazy" width="1040" height="740">
+    </figure>
+    <div class="texto">
+      <h2><span class="pt">Veja o que aconteceu enquanto você não olhava</span><span class="en">See what happened while you weren't looking</span></h2>
+      <p><span class="pt">Escolha o período, ligue ou desligue variáveis (temperatura da CPU, GPU, SoC, uso, frequência, ventoinha, bateria e tomada) e clique em qualquer ponto para ver o resumo daquele momento e o programa que mais pesou.</span><span class="en">Pick the period, toggle variables (CPU, GPU and SoC temperature, usage, frequency, fan, battery and plugged-in) and click any point to see that moment's summary and the heaviest program.</span></p>
+    </div>
+  </section>
+
+  <section id="como">
+    <h2><span class="pt">Como funciona</span><span class="en">How it works</span></h2>
+    <p class="intro"><span class="pt">Sem driver de núcleo e sem programas de terceiros em execução. O TempCPU tenta as fontes nesta ordem e usa a primeira que responder:</span><span class="en">No kernel driver and no third-party program running. TempCPU tries these sources in order and uses the first that answers:</span></p>
+    <ol class="passos">
+      <li><strong>AMD (ADL)</strong> — <span class="pt">leitura direta dos sensores do processador e da GPU integrada AMD, ao vivo.</span><span class="en">direct reading of the processor and AMD integrated GPU sensors, live.</span></li>
+      <li><strong>LibreHardwareMonitor</strong> — <span class="pt">só se você já o tem aberto.</span><span class="en">only if you already have it open.</span></li>
+      <li><strong>ACPI</strong> — <span class="pt">a zona térmica do Windows. Em alguns computadores o firmware atualiza esse valor só em degraus e ele pode ficar parado; o app avisa quando isso acontece.</span><span class="en">the Windows thermal zone. On some computers the firmware updates this value only in steps and it may stall; the app warns when that happens.</span></li>
+    </ol>
+  </section>
+
+  <section id="faz-nao-faz" class="duas colunas">
+    <div class="cartao">
+      <h3><span class="pt">O que ele faz</span><span class="en">What it does</span></h3>
+      <ul>
+        <li><span class="pt">Lê sensores e mostra o resultado.</span><span class="en">Reads sensors and shows the result.</span></li>
+        <li><span class="pt">Grava um histórico em <code>%LOCALAPPDATA%\TempCPU</code>.</span><span class="en">Saves a history in <code>%LOCALAPPDATA%\TempCPU</code>.</span></li>
+        <li><span class="pt">Cria uma tarefa agendada para iniciar com o Windows <strong>somente se você pedir</strong>, com um clique.</span><span class="en">Creates a scheduled task to start with Windows <strong>only if you ask</strong>, with one click.</span></li>
+        <li><span class="pt">Sugere ações (por exemplo, fechar um programa pesado).</span><span class="en">Suggests actions (for example, closing a heavy program).</span></li>
+      </ul>
+    </div>
+    <div class="cartao">
+      <h3><span class="pt">O que ele não faz</span><span class="en">What it does not do</span></h3>
+      <ul>
+        <li><span class="pt">Não instala driver nem mexe no núcleo do Windows.</span><span class="en">Does not install a driver or touch the Windows kernel.</span></li>
+        <li><span class="pt">Não muda configurações do sistema sozinho.</span><span class="en">Does not change system settings by itself.</span></li>
+        <li><span class="pt">Não envia seus dados pela internet.</span><span class="en">Does not send your data over the internet.</span></li>
+        <li><span class="pt">Não grava o nome dos programas se você desligar essa opção (<code>SALVAR_PROGRAMAS</code>).</span><span class="en">Does not store program names if you turn that option off (<code>SALVAR_PROGRAMAS</code>).</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="laboratorio" class="duas">
+    <div class="texto">
+      <h2><span class="pt">Laboratório: aprenda machine learning com o seu histórico</span><span class="en">Lab: learn machine learning from your own history</span></h2>
+      <p><span class="pt">Opcional e separado do app. Três lições para quem não sabe nada do assunto: prever a temperatura (e ver o sobreajuste), descobrir quando está “quente para o que você faz”, e criar dados de mentira com gabarito. Uma tela mostra a <strong>qualidade dos seus dados</strong> e diz o que falta para cada lição. O histórico é só seu e nunca é compartilhado.</span><span class="en">Optional and separate from the app. Three lessons for people who know nothing about the subject: predict temperature (and see overfitting), find out when it is “hot for what you are doing”, and create fake data with an answer key. One screen shows your <strong>data quality</strong> and what is missing for each lesson. Your history is yours alone and is never shared.</span></p>
+      <p class="nota"><span class="pt">Exige Python 3.14 de 64 bits instalado; o ambiente (~240 MB) só é criado depois da sua confirmação.</span><span class="en">Requires 64-bit Python 3.14; the environment (~240 MB) is only created after you confirm.</span></p>
+    </div>
+    <figure class="imagem">
+      <img src="img/lab1.png" alt="Lição 1 do Laboratório com curva de erro por profundidade / Lab lesson 1 with the error-by-depth curve" loading="lazy" width="1120" height="800">
+      <figcaption><span class="pt">Dados de mentira (sintéticos).</span><span class="en">Fake (synthetic) data.</span></figcaption>
+    </figure>
+  </section>
+
+  <section id="requisitos">
+    <h2><span class="pt">Requisitos e compatibilidade</span><span class="en">Requirements and compatibility</span></h2>
+    <ul class="lista">
+      <li><span class="pt">Windows 11 com processador AMD Ryzen e GPU Radeon integrada, em notebook ASUS: é o único cenário testado até agora.</span><span class="en">Windows 11 with an AMD Ryzen processor and integrated Radeon GPU, on an ASUS laptop: the only scenario tested so far.</span></li>
+      <li><span class="pt">Em outros computadores (por exemplo, Intel) o app usa a fonte ACPI, que pode ficar parada em alguns modelos. Funciona, mas com menos detalhe.</span><span class="en">On other computers (for example, Intel) the app uses the ACPI source, which may stall on some models. It works, but with less detail.</span></li>
+      <li><span class="pt">Ler a zona ACPI e a ventoinha ASUS exige executar como administrador. Funcionar sem administrador ainda não foi verificado.</span><span class="en">Reading the ACPI zone and the ASUS fan requires running as administrator. Working without administrator has not been verified yet.</span></li>
+      <li><span class="pt">Ventoinha: só em notebooks ASUS com a interface ATK.</span><span class="en">Fan: only on ASUS laptops with the ATK interface.</span></li>
+    </ul>
+  </section>
+
+  <section id="apoio">
+    <div class="cartao apoio">
+      <h2><span class="pt">Apoie o projeto</span><span class="en">Support the project</span></h2>
+      <p><span class="pt">O TempCPU é gratuito e vai continuar sendo. Se ele foi útil e você quiser ajudar a mantê-lo, qualquer valor é bem-vindo, sem mínimo e sem obrigação. Nada muda no app por causa disso.</span><span class="en">TempCPU is free and will stay free. If it was useful and you want to help keep it going, any amount is welcome, with no minimum and no obligation. Nothing changes in the app because of it.</span></p>
+      <p class="nota"><span class="pt">Chave Pix e link de apoio: em breve.</span><span class="en">Pix key and support link: coming soon.</span></p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2>FAQ</h2>
+    <details><summary><span class="pt">Meus dados saem do computador?</span><span class="en">Does my data leave the computer?</span></summary>
+      <p><span class="pt">Não. O histórico fica em <code>%LOCALAPPDATA%\TempCPU</code>. A única conexão de rede possível é o download das bibliotecas do Laboratório, e só depois da sua confirmação.</span><span class="en">No. The history stays in <code>%LOCALAPPDATA%\TempCPU</code>. The only possible network connection is downloading the Lab's libraries, and only after you confirm.</span></p></details>
+    <details><summary><span class="pt">Posso apagar o histórico?</span><span class="en">Can I delete the history?</span></summary>
+      <p><span class="pt">Sim: é só apagar a pasta acima com o app fechado. O app apaga sozinho o que passa de 365 dias (configurável).</span><span class="en">Yes: just delete the folder above with the app closed. The app removes anything older than 365 days by itself (configurable).</span></p></details>
+    <details><summary><span class="pt">Por que o número às vezes fica parado?</span><span class="en">Why does the number sometimes stay still?</span></summary>
+      <p><span class="pt">Na fonte ACPI, alguns firmwares só atualizam a temperatura em degraus. O app detecta e avisa.</span><span class="en">On the ACPI source, some firmwares only update the temperature in steps. The app detects it and warns you.</span></p></details>
+    <details><summary><span class="pt">Quanto custa?</span><span class="en">How much does it cost?</span></summary>
+      <p><span class="pt">Nada: é gratuito. Há um apoio opcional, sem valor mínimo (veja “Apoie o projeto”).</span><span class="en">Nothing: it is free. There is an optional support option with no minimum (see “Support the project”).</span></p></details>
+    <details><summary><span class="pt">Preciso do Laboratório?</span><span class="en">Do I need the Lab?</span></summary>
+      <p><span class="pt">Não. O TempCPU funciona igual sem ele e continua leve.</span><span class="en">No. TempCPU works the same without it and stays light.</span></p></details>
+  </section>
+</main>
+
+<footer>
+  <p>TempCPU · <span class="pt">gratuito</span><span class="en">free</span></p>
+  <p class="nota"><span class="pt">Esta página usa capturas com dados de demonstração. Nenhuma informação de computador ou pessoa real aparece nelas.</span><span class="en">This page uses screenshots with demo data. No real computer or personal information appears in them.</span></p>
+</footer>
+<script src="idioma.js"></script>
+</body>
+</html>
