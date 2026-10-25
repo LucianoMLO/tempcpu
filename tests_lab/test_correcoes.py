@@ -189,7 +189,7 @@ class TestProgressoValidado(unittest.TestCase):
     def test_estrutura_inesperada_vira_padrao(self):
         for lixo in ([1, 2], "texto", {"concluidas": 5, "acertos": [], "fonte": 3}, "{quebrado"):
             d = self.carregar(lixo)
-            self.assertEqual(d, {"concluidas": [], "acertos": {}, "fonte": None})
+            self.assertEqual(d, {"concluidas": [], "acertos": {}, "fonte": None, "provas": []})
 
     def test_arquivo_valido_e_lido(self):
         d = self.carregar({"concluidas": [2], "acertos": {"2.1": False}, "fonte": "real"})

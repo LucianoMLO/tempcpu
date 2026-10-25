@@ -41,6 +41,8 @@ Spec e estado de verificação por critério: `docs/SPEC-laboratorio.md` · deci
 
 - **Banco de questões (B-0):** `lab/questoes.py` (50 questões, 10 por tema, 2 de nivelamento e 8 da final por tema) e `tests_lab/test_questoes.py` (critérios B1 a B5 e extras: termos marcados, sem jargão, correta nunca a mais longa em mais da metade). Ambos fora do Git de propósito (respostas). **Pendente: revisão humana do conteúdo** e do destino `revisar` (lição, passo) de cada questão.
 
+- **Núcleo da avaliação (B-1):** `lab/avaliacao.py` (sorteio do nivelamento e da final por semente, sem repetir a tentativa anterior, correção, aprovação 80% + metade de cada tema, recomendação de lição, validação do nome, código de conferência) e resumo de provas em `Progresso`. Referência das regras para o Worker. Testes públicos com banco falso em `tests_lab/test_avaliacao.py`; integração com o banco real fica no arquivo privado. Pendente: telas (B-2), Worker/D1, PDF.
+
 ## Próximas etapas: lançamento público (planejado, não iniciado)
 Detalhe e checklist completo na nota do projeto no cérebro (`20-projetos/tempcpu.md`).
 0. Decisões de produto: nome, licença, compatibilidade declarada, gratuito.
