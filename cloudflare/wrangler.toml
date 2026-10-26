@@ -14,7 +14,7 @@ MAX_FINAIS_POR_DIA = "5"
 [[d1_databases]]
 binding = "DB"
 database_name = "tempcpu-avaliacao"
-database_id = "00000000-0000-0000-0000-000000000000"   # troque pelo id real: wrangler d1 create tempcpu-avaliacao
+database_id = "ac05c8b2-addb-4f8e-9316-6e4d831599ae"
 
 # Segredos (nunca neste arquivo): wrangler secret put SEGREDO_ASSINATURA | RESEND_API_KEY | TURNSTILE_SECRET
 # Variáveis públicas em produção: EMAIL_REMETENTE, TURNSTILE_SITEKEY, ORIGEM_PUBLICA
