@@ -1,0 +1,962 @@
+{
+ "versao": "exemplo",
+ "temas": {
+  "T1": "Dados e variáveis",
+  "T2": "Treino, teste e sobreajuste",
+  "T3": "Avaliar um modelo",
+  "T4": "Anomalia e tendência",
+  "T5": "Dados de mentira com gabarito"
+ },
+ "questoes": [
+  {
+   "id": "T1-01",
+   "tema": "T1",
+   "uso": "nivelamento",
+   "nivel": 1,
+   "pergunta": "Questão de exemplo T1-1: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T1-1",
+    "Alternativa B de T1-1",
+    "Alternativa C de T1-1",
+    "Alternativa D de T1-1"
+   ],
+   "correta": 3,
+   "explicacao": "Explicação de exemplo da questão T1-1.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T1-02",
+   "tema": "T1",
+   "uso": "nivelamento",
+   "nivel": 1,
+   "pergunta": "Questão de exemplo T1-2: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T1-2",
+    "Alternativa B de T1-2",
+    "Alternativa C de T1-2",
+    "Alternativa D de T1-2"
+   ],
+   "correta": 0,
+   "explicacao": "Explicação de exemplo da questão T1-2.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T1-03",
+   "tema": "T1",
+   "uso": "final",
+   "nivel": 1,
+   "pergunta": "Questão de exemplo T1-3: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T1-3",
+    "Alternativa B de T1-3",
+    "Alternativa C de T1-3",
+    "Alternativa D de T1-3"
+   ],
+   "correta": 1,
+   "explicacao": "Explicação de exemplo da questão T1-3.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T1-04",
+   "tema": "T1",
+   "uso": "final",
+   "nivel": 2,
+   "pergunta": "Questão de exemplo T1-4: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T1-4",
+    "Alternativa B de T1-4",
+    "Alternativa C de T1-4",
+    "Alternativa D de T1-4"
+   ],
+   "correta": 2,
+   "explicacao": "Explicação de exemplo da questão T1-4.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T1-05",
+   "tema": "T1",
+   "uso": "final",
+   "nivel": 3,
+   "pergunta": "Questão de exemplo T1-5: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T1-5",
+    "Alternativa B de T1-5",
+    "Alternativa C de T1-5",
+    "Alternativa D de T1-5"
+   ],
+   "correta": 3,
+   "explicacao": "Explicação de exemplo da questão T1-5.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T1-06",
+   "tema": "T1",
+   "uso": "final",
+   "nivel": 1,
+   "pergunta": "Questão de exemplo T1-6: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T1-6",
+    "Alternativa B de T1-6",
+    "Alternativa C de T1-6",
+    "Alternativa D de T1-6"
+   ],
+   "correta": 0,
+   "explicacao": "Explicação de exemplo da questão T1-6.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T1-07",
+   "tema": "T1",
+   "uso": "final",
+   "nivel": 2,
+   "pergunta": "Questão de exemplo T1-7: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T1-7",
+    "Alternativa B de T1-7",
+    "Alternativa C de T1-7",
+    "Alternativa D de T1-7"
+   ],
+   "correta": 1,
+   "explicacao": "Explicação de exemplo da questão T1-7.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T1-08",
+   "tema": "T1",
+   "uso": "final",
+   "nivel": 3,
+   "pergunta": "Questão de exemplo T1-8: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T1-8",
+    "Alternativa B de T1-8",
+    "Alternativa C de T1-8",
+    "Alternativa D de T1-8"
+   ],
+   "correta": 2,
+   "explicacao": "Explicação de exemplo da questão T1-8.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T1-09",
+   "tema": "T1",
+   "uso": "final",
+   "nivel": 1,
+   "pergunta": "Questão de exemplo T1-9: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T1-9",
+    "Alternativa B de T1-9",
+    "Alternativa C de T1-9",
+    "Alternativa D de T1-9"
+   ],
+   "correta": 3,
+   "explicacao": "Explicação de exemplo da questão T1-9.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T1-10",
+   "tema": "T1",
+   "uso": "final",
+   "nivel": 2,
+   "pergunta": "Questão de exemplo T1-10: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T1-10",
+    "Alternativa B de T1-10",
+    "Alternativa C de T1-10",
+    "Alternativa D de T1-10"
+   ],
+   "correta": 0,
+   "explicacao": "Explicação de exemplo da questão T1-10.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T2-01",
+   "tema": "T2",
+   "uso": "nivelamento",
+   "nivel": 1,
+   "pergunta": "Questão de exemplo T2-1: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T2-1",
+    "Alternativa B de T2-1",
+    "Alternativa C de T2-1",
+    "Alternativa D de T2-1"
+   ],
+   "correta": 3,
+   "explicacao": "Explicação de exemplo da questão T2-1.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T2-02",
+   "tema": "T2",
+   "uso": "nivelamento",
+   "nivel": 1,
+   "pergunta": "Questão de exemplo T2-2: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T2-2",
+    "Alternativa B de T2-2",
+    "Alternativa C de T2-2",
+    "Alternativa D de T2-2"
+   ],
+   "correta": 0,
+   "explicacao": "Explicação de exemplo da questão T2-2.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T2-03",
+   "tema": "T2",
+   "uso": "final",
+   "nivel": 1,
+   "pergunta": "Questão de exemplo T2-3: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T2-3",
+    "Alternativa B de T2-3",
+    "Alternativa C de T2-3",
+    "Alternativa D de T2-3"
+   ],
+   "correta": 1,
+   "explicacao": "Explicação de exemplo da questão T2-3.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T2-04",
+   "tema": "T2",
+   "uso": "final",
+   "nivel": 2,
+   "pergunta": "Questão de exemplo T2-4: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T2-4",
+    "Alternativa B de T2-4",
+    "Alternativa C de T2-4",
+    "Alternativa D de T2-4"
+   ],
+   "correta": 2,
+   "explicacao": "Explicação de exemplo da questão T2-4.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T2-05",
+   "tema": "T2",
+   "uso": "final",
+   "nivel": 3,
+   "pergunta": "Questão de exemplo T2-5: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T2-5",
+    "Alternativa B de T2-5",
+    "Alternativa C de T2-5",
+    "Alternativa D de T2-5"
+   ],
+   "correta": 3,
+   "explicacao": "Explicação de exemplo da questão T2-5.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T2-06",
+   "tema": "T2",
+   "uso": "final",
+   "nivel": 1,
+   "pergunta": "Questão de exemplo T2-6: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T2-6",
+    "Alternativa B de T2-6",
+    "Alternativa C de T2-6",
+    "Alternativa D de T2-6"
+   ],
+   "correta": 0,
+   "explicacao": "Explicação de exemplo da questão T2-6.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T2-07",
+   "tema": "T2",
+   "uso": "final",
+   "nivel": 2,
+   "pergunta": "Questão de exemplo T2-7: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T2-7",
+    "Alternativa B de T2-7",
+    "Alternativa C de T2-7",
+    "Alternativa D de T2-7"
+   ],
+   "correta": 1,
+   "explicacao": "Explicação de exemplo da questão T2-7.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T2-08",
+   "tema": "T2",
+   "uso": "final",
+   "nivel": 3,
+   "pergunta": "Questão de exemplo T2-8: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T2-8",
+    "Alternativa B de T2-8",
+    "Alternativa C de T2-8",
+    "Alternativa D de T2-8"
+   ],
+   "correta": 2,
+   "explicacao": "Explicação de exemplo da questão T2-8.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T2-09",
+   "tema": "T2",
+   "uso": "final",
+   "nivel": 1,
+   "pergunta": "Questão de exemplo T2-9: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T2-9",
+    "Alternativa B de T2-9",
+    "Alternativa C de T2-9",
+    "Alternativa D de T2-9"
+   ],
+   "correta": 3,
+   "explicacao": "Explicação de exemplo da questão T2-9.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T2-10",
+   "tema": "T2",
+   "uso": "final",
+   "nivel": 2,
+   "pergunta": "Questão de exemplo T2-10: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T2-10",
+    "Alternativa B de T2-10",
+    "Alternativa C de T2-10",
+    "Alternativa D de T2-10"
+   ],
+   "correta": 0,
+   "explicacao": "Explicação de exemplo da questão T2-10.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T3-01",
+   "tema": "T3",
+   "uso": "nivelamento",
+   "nivel": 1,
+   "pergunta": "Questão de exemplo T3-1: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T3-1",
+    "Alternativa B de T3-1",
+    "Alternativa C de T3-1",
+    "Alternativa D de T3-1"
+   ],
+   "correta": 3,
+   "explicacao": "Explicação de exemplo da questão T3-1.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T3-02",
+   "tema": "T3",
+   "uso": "nivelamento",
+   "nivel": 1,
+   "pergunta": "Questão de exemplo T3-2: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T3-2",
+    "Alternativa B de T3-2",
+    "Alternativa C de T3-2",
+    "Alternativa D de T3-2"
+   ],
+   "correta": 0,
+   "explicacao": "Explicação de exemplo da questão T3-2.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T3-03",
+   "tema": "T3",
+   "uso": "final",
+   "nivel": 1,
+   "pergunta": "Questão de exemplo T3-3: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T3-3",
+    "Alternativa B de T3-3",
+    "Alternativa C de T3-3",
+    "Alternativa D de T3-3"
+   ],
+   "correta": 1,
+   "explicacao": "Explicação de exemplo da questão T3-3.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T3-04",
+   "tema": "T3",
+   "uso": "final",
+   "nivel": 2,
+   "pergunta": "Questão de exemplo T3-4: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T3-4",
+    "Alternativa B de T3-4",
+    "Alternativa C de T3-4",
+    "Alternativa D de T3-4"
+   ],
+   "correta": 2,
+   "explicacao": "Explicação de exemplo da questão T3-4.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T3-05",
+   "tema": "T3",
+   "uso": "final",
+   "nivel": 3,
+   "pergunta": "Questão de exemplo T3-5: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T3-5",
+    "Alternativa B de T3-5",
+    "Alternativa C de T3-5",
+    "Alternativa D de T3-5"
+   ],
+   "correta": 3,
+   "explicacao": "Explicação de exemplo da questão T3-5.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T3-06",
+   "tema": "T3",
+   "uso": "final",
+   "nivel": 1,
+   "pergunta": "Questão de exemplo T3-6: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T3-6",
+    "Alternativa B de T3-6",
+    "Alternativa C de T3-6",
+    "Alternativa D de T3-6"
+   ],
+   "correta": 0,
+   "explicacao": "Explicação de exemplo da questão T3-6.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T3-07",
+   "tema": "T3",
+   "uso": "final",
+   "nivel": 2,
+   "pergunta": "Questão de exemplo T3-7: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T3-7",
+    "Alternativa B de T3-7",
+    "Alternativa C de T3-7",
+    "Alternativa D de T3-7"
+   ],
+   "correta": 1,
+   "explicacao": "Explicação de exemplo da questão T3-7.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T3-08",
+   "tema": "T3",
+   "uso": "final",
+   "nivel": 3,
+   "pergunta": "Questão de exemplo T3-8: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T3-8",
+    "Alternativa B de T3-8",
+    "Alternativa C de T3-8",
+    "Alternativa D de T3-8"
+   ],
+   "correta": 2,
+   "explicacao": "Explicação de exemplo da questão T3-8.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T3-09",
+   "tema": "T3",
+   "uso": "final",
+   "nivel": 1,
+   "pergunta": "Questão de exemplo T3-9: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T3-9",
+    "Alternativa B de T3-9",
+    "Alternativa C de T3-9",
+    "Alternativa D de T3-9"
+   ],
+   "correta": 3,
+   "explicacao": "Explicação de exemplo da questão T3-9.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T3-10",
+   "tema": "T3",
+   "uso": "final",
+   "nivel": 2,
+   "pergunta": "Questão de exemplo T3-10: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T3-10",
+    "Alternativa B de T3-10",
+    "Alternativa C de T3-10",
+    "Alternativa D de T3-10"
+   ],
+   "correta": 0,
+   "explicacao": "Explicação de exemplo da questão T3-10.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T4-01",
+   "tema": "T4",
+   "uso": "nivelamento",
+   "nivel": 1,
+   "pergunta": "Questão de exemplo T4-1: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T4-1",
+    "Alternativa B de T4-1",
+    "Alternativa C de T4-1",
+    "Alternativa D de T4-1"
+   ],
+   "correta": 3,
+   "explicacao": "Explicação de exemplo da questão T4-1.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T4-02",
+   "tema": "T4",
+   "uso": "nivelamento",
+   "nivel": 1,
+   "pergunta": "Questão de exemplo T4-2: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T4-2",
+    "Alternativa B de T4-2",
+    "Alternativa C de T4-2",
+    "Alternativa D de T4-2"
+   ],
+   "correta": 0,
+   "explicacao": "Explicação de exemplo da questão T4-2.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T4-03",
+   "tema": "T4",
+   "uso": "final",
+   "nivel": 1,
+   "pergunta": "Questão de exemplo T4-3: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T4-3",
+    "Alternativa B de T4-3",
+    "Alternativa C de T4-3",
+    "Alternativa D de T4-3"
+   ],
+   "correta": 1,
+   "explicacao": "Explicação de exemplo da questão T4-3.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T4-04",
+   "tema": "T4",
+   "uso": "final",
+   "nivel": 2,
+   "pergunta": "Questão de exemplo T4-4: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T4-4",
+    "Alternativa B de T4-4",
+    "Alternativa C de T4-4",
+    "Alternativa D de T4-4"
+   ],
+   "correta": 2,
+   "explicacao": "Explicação de exemplo da questão T4-4.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T4-05",
+   "tema": "T4",
+   "uso": "final",
+   "nivel": 3,
+   "pergunta": "Questão de exemplo T4-5: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T4-5",
+    "Alternativa B de T4-5",
+    "Alternativa C de T4-5",
+    "Alternativa D de T4-5"
+   ],
+   "correta": 3,
+   "explicacao": "Explicação de exemplo da questão T4-5.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T4-06",
+   "tema": "T4",
+   "uso": "final",
+   "nivel": 1,
+   "pergunta": "Questão de exemplo T4-6: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T4-6",
+    "Alternativa B de T4-6",
+    "Alternativa C de T4-6",
+    "Alternativa D de T4-6"
+   ],
+   "correta": 0,
+   "explicacao": "Explicação de exemplo da questão T4-6.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T4-07",
+   "tema": "T4",
+   "uso": "final",
+   "nivel": 2,
+   "pergunta": "Questão de exemplo T4-7: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T4-7",
+    "Alternativa B de T4-7",
+    "Alternativa C de T4-7",
+    "Alternativa D de T4-7"
+   ],
+   "correta": 1,
+   "explicacao": "Explicação de exemplo da questão T4-7.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T4-08",
+   "tema": "T4",
+   "uso": "final",
+   "nivel": 3,
+   "pergunta": "Questão de exemplo T4-8: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T4-8",
+    "Alternativa B de T4-8",
+    "Alternativa C de T4-8",
+    "Alternativa D de T4-8"
+   ],
+   "correta": 2,
+   "explicacao": "Explicação de exemplo da questão T4-8.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T4-09",
+   "tema": "T4",
+   "uso": "final",
+   "nivel": 1,
+   "pergunta": "Questão de exemplo T4-9: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T4-9",
+    "Alternativa B de T4-9",
+    "Alternativa C de T4-9",
+    "Alternativa D de T4-9"
+   ],
+   "correta": 3,
+   "explicacao": "Explicação de exemplo da questão T4-9.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T4-10",
+   "tema": "T4",
+   "uso": "final",
+   "nivel": 2,
+   "pergunta": "Questão de exemplo T4-10: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T4-10",
+    "Alternativa B de T4-10",
+    "Alternativa C de T4-10",
+    "Alternativa D de T4-10"
+   ],
+   "correta": 0,
+   "explicacao": "Explicação de exemplo da questão T4-10.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T5-01",
+   "tema": "T5",
+   "uso": "nivelamento",
+   "nivel": 1,
+   "pergunta": "Questão de exemplo T5-1: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T5-1",
+    "Alternativa B de T5-1",
+    "Alternativa C de T5-1",
+    "Alternativa D de T5-1"
+   ],
+   "correta": 3,
+   "explicacao": "Explicação de exemplo da questão T5-1.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T5-02",
+   "tema": "T5",
+   "uso": "nivelamento",
+   "nivel": 1,
+   "pergunta": "Questão de exemplo T5-2: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T5-2",
+    "Alternativa B de T5-2",
+    "Alternativa C de T5-2",
+    "Alternativa D de T5-2"
+   ],
+   "correta": 0,
+   "explicacao": "Explicação de exemplo da questão T5-2.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T5-03",
+   "tema": "T5",
+   "uso": "final",
+   "nivel": 1,
+   "pergunta": "Questão de exemplo T5-3: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T5-3",
+    "Alternativa B de T5-3",
+    "Alternativa C de T5-3",
+    "Alternativa D de T5-3"
+   ],
+   "correta": 1,
+   "explicacao": "Explicação de exemplo da questão T5-3.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T5-04",
+   "tema": "T5",
+   "uso": "final",
+   "nivel": 2,
+   "pergunta": "Questão de exemplo T5-4: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T5-4",
+    "Alternativa B de T5-4",
+    "Alternativa C de T5-4",
+    "Alternativa D de T5-4"
+   ],
+   "correta": 2,
+   "explicacao": "Explicação de exemplo da questão T5-4.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T5-05",
+   "tema": "T5",
+   "uso": "final",
+   "nivel": 3,
+   "pergunta": "Questão de exemplo T5-5: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T5-5",
+    "Alternativa B de T5-5",
+    "Alternativa C de T5-5",
+    "Alternativa D de T5-5"
+   ],
+   "correta": 3,
+   "explicacao": "Explicação de exemplo da questão T5-5.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T5-06",
+   "tema": "T5",
+   "uso": "final",
+   "nivel": 1,
+   "pergunta": "Questão de exemplo T5-6: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T5-6",
+    "Alternativa B de T5-6",
+    "Alternativa C de T5-6",
+    "Alternativa D de T5-6"
+   ],
+   "correta": 0,
+   "explicacao": "Explicação de exemplo da questão T5-6.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T5-07",
+   "tema": "T5",
+   "uso": "final",
+   "nivel": 2,
+   "pergunta": "Questão de exemplo T5-7: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T5-7",
+    "Alternativa B de T5-7",
+    "Alternativa C de T5-7",
+    "Alternativa D de T5-7"
+   ],
+   "correta": 1,
+   "explicacao": "Explicação de exemplo da questão T5-7.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T5-08",
+   "tema": "T5",
+   "uso": "final",
+   "nivel": 3,
+   "pergunta": "Questão de exemplo T5-8: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T5-8",
+    "Alternativa B de T5-8",
+    "Alternativa C de T5-8",
+    "Alternativa D de T5-8"
+   ],
+   "correta": 2,
+   "explicacao": "Explicação de exemplo da questão T5-8.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T5-09",
+   "tema": "T5",
+   "uso": "final",
+   "nivel": 1,
+   "pergunta": "Questão de exemplo T5-9: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T5-9",
+    "Alternativa B de T5-9",
+    "Alternativa C de T5-9",
+    "Alternativa D de T5-9"
+   ],
+   "correta": 3,
+   "explicacao": "Explicação de exemplo da questão T5-9.",
+   "revisar": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "T5-10",
+   "tema": "T5",
+   "uso": "final",
+   "nivel": 2,
+   "pergunta": "Questão de exemplo T5-10: qual alternativa é a correta?",
+   "opcoes": [
+    "Alternativa A de T5-10",
+    "Alternativa B de T5-10",
+    "Alternativa C de T5-10",
+    "Alternativa D de T5-10"
+   ],
+   "correta": 0,
+   "explicacao": "Explicação de exemplo da questão T5-10.",
+   "revisar": [
+    1,
+    2
+   ]
+  }
+ ]
+}

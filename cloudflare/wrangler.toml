@@ -1,0 +1,20 @@
+name = "tempcpu-avaliacao"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+
+[vars]
+# "dev" mostra o link de e-mail no log e dispensa o Turnstile. Em produção, apague esta linha ou deixe vazio.
+AMBIENTE = "dev"
+EMISSOR_NOME = "Mais Valor Consultoria e Serviços"
+EMISSOR_CNPJ = ""
+CONTATO_PRIVACIDADE = ""
+INTERVALO_MIN_FINAL_S = "600"
+MAX_FINAIS_POR_DIA = "5"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "tempcpu-avaliacao"
+database_id = "00000000-0000-0000-0000-000000000000"   # troque pelo id real: wrangler d1 create tempcpu-avaliacao
+
+# Segredos (nunca neste arquivo): wrangler secret put SEGREDO_ASSINATURA | RESEND_API_KEY | TURNSTILE_SECRET
+# Variáveis públicas em produção: EMAIL_REMETENTE, TURNSTILE_SITEKEY, ORIGEM_PUBLICA

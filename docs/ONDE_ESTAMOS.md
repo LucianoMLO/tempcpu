@@ -43,6 +43,8 @@ Spec e estado de verificação por critério: `docs/SPEC-laboratorio.md` · deci
 
 - **Núcleo da avaliação (B-1):** `lab/avaliacao.py` (sorteio do nivelamento e da final por semente, sem repetir a tentativa anterior, correção, aprovação 80% + metade de cada tema, recomendação de lição, validação do nome, código de conferência) e resumo de provas em `Progresso`. Referência das regras para o Worker. Testes públicos com banco falso em `tests_lab/test_avaliacao.py`; integração com o banco real fica no arquivo privado. Pendente: telas (B-2), Worker/D1, PDF.
 
+- **Worker da avaliação (B-2/B-3 na Cloudflare):** `cloudflare/` (TypeScript, D1): nivelamento anônimo, cadastro com link por e-mail, final com correção no servidor, certificado imprimível com código HMAC e verificação pública de 12 meses, exclusão de conta, `/privacidade` (rascunho). 33 testes (`npm test` em `cloudflare/`, D1 falso sobre `node:sqlite`) e fluxo completo conferido no `wrangler dev` (workerd + D1 local) e no navegador. **Não publicado.** Decisões que mudaram a spec: nivelamento sem cadastro; certificado como página para imprimir/salvar em PDF; código por HMAC com segredo do servidor. Banco real exportado por `tools/exportar_banco.py` para `cloudflare/banco/ativo.json` (fora do Git). Falta: conta Cloudflare e domínio, provedor de e-mail, Turnstile, revisão jurídica, botão no Laboratório.
+
 ## Próximas etapas: lançamento público (planejado, não iniciado)
 Detalhe e checklist completo na nota do projeto no cérebro (`20-projetos/tempcpu.md`).
 0. Decisões de produto: nome, licença, compatibilidade declarada, gratuito.

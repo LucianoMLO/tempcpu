@@ -12,3 +12,10 @@ __pycache__/
 # Banco de questões da avaliação: as respostas NÃO podem ficar públicas (ver docs/SPEC-avaliacao.md)
 lab/questoes.py
 tests_lab/test_questoes.py
+
+# Worker da Cloudflare (avaliação): dependências, estado local e o banco ativo (tem as respostas)
+cloudflare/node_modules/
+cloudflare/.wrangler/
+cloudflare/.dev.vars
+cloudflare/.npm-install.log
+cloudflare/banco/ativo.json
