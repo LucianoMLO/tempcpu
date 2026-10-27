@@ -58,7 +58,7 @@ Medido no Ryzen 7 4800HS, minimizado e gravando o histórico: cerca de **19 MB d
 
 ## Baixar (mais fácil)
 
-Baixe o `TempCPU-0.1-win64.zip` em [Releases](https://github.com/LucianoMLO/tempcpu/releases/latest), extraia (botão direito, **Extrair tudo**) e abra `TempCPU.exe`; clique em **Sim** quando o Windows perguntar. Não precisa instalar o Python (só para o Laboratório opcional). O programa **não é assinado**: o Windows pode avisar "O Windows protegeu o seu computador"; clique em *Mais informações* e *Executar assim mesmo*. Confira o arquivo pelo SHA-256 nas notas da versão.
+Baixe o `TempCPU-0.2-win64.zip` em [Releases](https://github.com/LucianoMLO/tempcpu/releases/latest), extraia (botão direito, **Extrair tudo**) e abra `TempCPU.exe`; clique em **Sim** quando o Windows perguntar. Não precisa instalar o Python (só para o Laboratório opcional). O programa **não é assinado**: o Windows pode avisar "O Windows protegeu o seu computador"; clique em *Mais informações* e *Executar assim mesmo*. Confira o arquivo pelo SHA-256 nas notas da versão.
 
 Se preferir rodar a partir do código, siga os passos abaixo.
 
