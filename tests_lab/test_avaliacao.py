@@ -15,9 +15,9 @@ from lab.progresso import Progresso  # noqa: E402
 TEMAS = ["T1", "T2", "T3", "T4", "T5"]
 
 
-def banco_falso(n_final=8, n_niv=2):
+def banco_falso(n_final=8, n_niv=2, temas=TEMAS):
     banco = []
-    for t in TEMAS:
+    for t in temas:
         for i in range(1, n_niv + n_final + 1):
             niv = i <= n_niv
             banco.append({"id": f"{t}-{i:02d}", "tema": t, "uso": "nivelamento" if niv else "final", "nivel": 1 if niv else (1 + i % 3),
@@ -112,6 +112,51 @@ class TestSorteio(unittest.TestCase):
         repetido[1]["id"] = repetido[0]["id"]
         with self.assertRaises(ValueError):
             A.sortear_nivelamento(1, banco=repetido)
+
+
+TEMAS8 = TEMAS + ["T6", "T7", "T8"]
+
+
+class TestOitoTemas(unittest.TestCase):
+    """Com 6 temas ou mais a final tem 3 questões por tema (8 temas = 24 questões)."""
+
+    def setUp(self):
+        self.banco = banco_falso(temas=TEMAS8)
+
+    def test_a_final_tem_24_questoes_3_por_tema(self):
+        self.assertEqual(A.por_tema_padrao(5), 4)
+        self.assertEqual(A.por_tema_padrao(8), 3)
+        p = A.sortear_final(9, banco=self.banco)
+        self.assertEqual(len(p.itens), 24)
+        for t in TEMAS8:
+            self.assertEqual(sum(i.tema == t for i in p.itens), 3)
+        self.assertEqual(len(A.sortear_nivelamento(9, banco=self.banco).itens), 16)
+
+    def test_aprovacao_20_de_24_e_2_de_3_por_tema(self):
+        p = A.sortear_final(9, banco=self.banco)
+
+        def erros(por_tema):
+            return [i.id for t, n in por_tema.items() for i in [x for x in p.itens if x.tema == t][:n]]
+
+        self.assertEqual(A.corrigir(p, responder_certo(p)).aprovado, True)
+        ok = A.corrigir(p, responder_certo(p, erros({"T1": 1, "T2": 1, "T3": 1, "T4": 1})))
+        self.assertEqual((ok.acertos, ok.aprovado), (20, True))
+        nota = A.corrigir(p, responder_certo(p, erros({"T1": 1, "T2": 1, "T3": 1, "T4": 1, "T5": 1})))
+        self.assertEqual((nota.acertos, nota.aprovado), (19, False))
+        tema = A.corrigir(p, responder_certo(p, erros({"T7": 2})))
+        self.assertEqual((tema.acertos, tema.por_tema["T7"], tema.aprovado), (22, (1, 3), False))
+        self.assertIn("T7", tema.motivos[0])
+
+    def test_nao_repete_a_tentativa_anterior_e_recomenda_licoes_novas(self):
+        a = A.sortear_final(1, banco=self.banco)
+        b = A.sortear_final(2, anteriores=[i.id for i in a.itens], banco=self.banco)
+        self.assertFalse({i.id for i in a.itens} & {i.id for i in b.itens})
+        niv = A.sortear_nivelamento(3, banco=self.banco)
+        ids = lambda t: [i.id for i in niv.itens if i.tema == t]
+        self.assertIsNone(A.recomendar_licao(A.corrigir(niv, responder_certo(niv))))
+        self.assertEqual(A.recomendar_licao(A.corrigir(niv, responder_certo(niv, ids("T6")))), 4)
+        self.assertEqual(A.recomendar_licao(A.corrigir(niv, responder_certo(niv, ids("T7")))), 5)
+        self.assertEqual(A.recomendar_licao(A.corrigir(niv, responder_certo(niv, ids("T8")))), 3)
 
 
 class TestCorrecaoEAprovacao(unittest.TestCase):

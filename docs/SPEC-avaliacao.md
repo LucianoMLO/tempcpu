@@ -178,3 +178,6 @@ O banco (`lab/questoes.py`, 50 questões, versão 1.1) **não é versionado no r
 - **N8** Segredos (chave de assinatura, chaves de e-mail) fora do repositório, em `wrangler secret`/`.dev.vars` ignorado pelo Git.
 
 **Esforço realista:** Worker + D1 + e-mail + Turnstile + geração de PDF + tela de cadastro + textos legais + 50 questões revisadas + testes: da ordem de dias a poucas semanas. **Não é viável fazer com qualidade e sem revisão jurídica em um dia.**
+
+## Atualização (2026-10-27): banco de 80 questões, 8 temas
+Com as lições 4 e 5 e os passos novos das lições 1 a 3, o banco passou de 50 para **80 questões** (10 por tema, 2 de nivelamento e 8 da final por tema, versão 1.2): T6 Classificação, T7 Agrupamento e componentes principais, T8 Regularização e modelos mais fortes (validação cruzada, boosting, Isolation Forest, Ridge e Lasso). **Regras que mudaram:** o nivelamento tem 16 questões; a final tem **24** (3 por tema quando há 6 temas ou mais; até 5 temas continuam 4 por tema, 20 questões); aprovação **20 de 24 (80%) e pelo menos 2 de 3 em cada tema**. O tema T8 recomenda a Lição 3 no nivelamento (T6: Lição 4; T7: Lição 5). Os destinos `revisar` das questões que apontavam para o "Resumo" (agora o passo 7) foram atualizados. Os testes B1 a B5 continuam valendo (a resposta correta é a mais longa em 36% das questões, abaixo do limite de 50%).

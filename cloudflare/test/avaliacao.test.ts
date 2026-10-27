@@ -126,3 +126,27 @@ test("faixas e nome", () => {
   assert.equal(A.validarEmail("  Maria@Exemplo.COM "), "maria@exemplo.com");
   for (const ruim of ["", "sem-arroba", "a@b", "a b@c.com", 5]) assert.throws(() => A.validarEmail(ruim), A.ErroDeEntrada);
 });
+
+test("com 8 temas a final tem 24 questões (3 por tema) e a aprovação é 20 de 24 com 2 de 3 por tema", () => {
+  const temas = { T1: "a", T2: "b", T3: "c", T4: "d", T5: "e", T6: "f", T7: "g", T8: "h" };
+  const base = bancoFalso();
+  const questoes = Object.keys(temas).flatMap((t) =>
+    Array.from({ length: 10 }, (_, k) => ({
+      ...base.questoes[0]!, id: `${t}-${String(k + 1).padStart(2, "0")}`, tema: t, uso: (k < 2 ? "nivelamento" : "final") as "nivelamento" | "final",
+      nivel: k < 2 ? 1 : 1 + (k % 3), correta: k % 3, opcoes: ["a", "b", "c", "d"], explicacao: "x", revisar: [1, 2] as [number, number],
+    })),
+  );
+  const banco = { versao: "t", temas, questoes };
+  assert.equal(A.porTemaPadrao(5), 4);
+  assert.equal(A.porTemaPadrao(8), 3);
+  const p = A.sortearFinal(9, [], banco);
+  assert.equal(p.itens.length, 24);
+  for (const t of Object.keys(temas)) assert.equal(p.itens.filter((i) => i.tema === t).length, 3);
+  assert.equal(A.sortearNivelamento(9, banco).itens.length, 16);
+  const erra = (porTema: Record<string, number>) => Object.entries(porTema).flatMap(([t, n]) => p.itens.filter((i) => i.tema === t).slice(0, n).map((i) => i.id));
+  assert.deepEqual([A.corrigir(p, certo(p, erra({ T1: 1, T2: 1, T3: 1, T4: 1 }))).acertos, A.corrigir(p, certo(p, erra({ T1: 1, T2: 1, T3: 1, T4: 1 }))).aprovado], [20, true]);
+  assert.equal(A.corrigir(p, certo(p, erra({ T1: 1, T2: 1, T3: 1, T4: 1, T5: 1 }))).aprovado, false);
+  const tema = A.corrigir(p, certo(p, erra({ T7: 2 })));
+  assert.deepEqual([tema.acertos, tema.porTema.T7, tema.aprovado], [22, [1, 3], false]);
+  assert.equal(A.recomendarLicao(A.corrigir(A.sortearNivelamento(3, banco), Object.fromEntries(A.sortearNivelamento(3, banco).itens.map((i) => [i.id, i.tema === "T6" ? (i.correta + 1) % i.opcoes.length : i.correta])))), 4);
+});

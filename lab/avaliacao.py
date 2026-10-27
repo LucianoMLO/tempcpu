@@ -15,10 +15,11 @@ from typing import Mapping, Sequence
 
 NOTA_MINIMA_PCT = 80                 # aprovação: pelo menos 80% de acertos na final
 MINIMO_POR_TEMA_PCT = 50             # e pelo menos metade das questões de cada tema (2 de 4)
-POR_TEMA_NA_FINAL = 4
+POR_TEMA_NA_FINAL = 4                 # até 5 temas: 20 questões
+POR_TEMA_NA_FINAL_MUITOS_TEMAS = 3    # 6 temas ou mais: 3 por tema (8 temas = 24 questões)
 FAIXA_DOMINADO_PCT = 75
 FAIXA_REVISAR_PCT = 50
-LICAO_DO_TEMA = {"T1": 1, "T2": 1, "T3": 1, "T4": 2, "T5": 3}
+LICAO_DO_TEMA = {"T1": 1, "T2": 1, "T3": 1, "T4": 2, "T5": 3, "T6": 4, "T7": 5, "T8": 3}
 NOME_MIN, NOME_MAX = 3, 80
 
 
@@ -117,10 +118,15 @@ def sortear_nivelamento(semente: int, banco: Sequence[dict] | None = None) -> Pr
     return Prova("nivelamento", semente, itens, _versao(banco))
 
 
+def por_tema_padrao(n_temas: int) -> int:
+    """4 por tema até 5 temas (20 questões); 3 por tema a partir de 6 (8 temas = 24 questões)."""
+    return POR_TEMA_NA_FINAL if n_temas <= 5 else POR_TEMA_NA_FINAL_MUITOS_TEMAS
+
+
 def sortear_final(semente: int, anteriores: Sequence[str] = (), banco: Sequence[dict] | None = None,
-                  por_tema: int = POR_TEMA_NA_FINAL) -> Prova:
-    """`por_tema` questões de cada tema, sem repetir as ids de `anteriores` enquanto houver outras, com pelo menos
-    uma de nível 2 ou 3 por tema."""
+                  por_tema: int | None = None) -> Prova:
+    """`por_tema` questões de cada tema (padrão: `por_tema_padrao`), sem repetir as ids de `anteriores` enquanto houver
+    outras, com pelo menos uma de nível 2 ou 3 por tema."""
     banco = banco_padrao() if banco is None else banco
     _validar_banco(banco)
     rng = random.Random(semente)
@@ -128,6 +134,7 @@ def sortear_final(semente: int, anteriores: Sequence[str] = (), banco: Sequence[
     temas = sorted({q["tema"] for q in banco if q["uso"] == "final"})
     if not temas:
         raise ValueError("o banco não tem questões da avaliação final")
+    por_tema = por_tema_padrao(len(temas)) if por_tema is None else por_tema
     escolhidas: list[dict] = []
     for tema in temas:
         pool = [q for q in banco if q["uso"] == "final" and q["tema"] == tema]

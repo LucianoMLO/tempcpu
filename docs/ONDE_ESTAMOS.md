@@ -52,6 +52,8 @@ Spec e estado de verificação por critério: `docs/SPEC-laboratorio.md` · deci
 
 - **Lições novas (2026-10-27):** Lição 4 (classificação) e Lição 5 (agrupamento e PCA) + passos novos nas lições 1 a 3 (validação cruzada, boosting, Isolation Forest, Ridge e Lasso). Núcleo `lab/modelos2.py`, telas `lab/ui/passos_novos.py`, `licao4.py`, `licao5.py`, controles em `lab/ui/controles.py`, 56 termos no glossário. Calibrado com o gerador (números em `docs/SPEC-licoes-novas.md`); **achados honestos**: o Isolation Forest perde para o resíduo (calor com carga alta não é raro), o Ridge não melhora o coeficiente do uso, a silhueta prefere k = 2 embora os regimes verdadeiros sejam 3. Testes: 253+ do Laboratório (`tests_lab/test_modelos2.py`, `test_ui_novas.py` novos) e 158 do app. **Pendente:** questões da avaliação para as lições novas (T6 a T8), executável novo (o Release 0.1.0 não as inclui), medição A10 formal, teste com histórico real.
 
+- **Banco de 80 questões (2026-10-27):** +30 questões (T6 a T8) para as lições novas; nivelamento de 16, final de 24 (3 por tema), aprovação 20/24 e 2 de 3 por tema. `lab/avaliacao.py` e `cloudflare/src/avaliacao.ts` com a regra `por_tema_padrao`. Worker de teste republicado com o banco 1.2 e ciclo completo conferido (nivelamento 16, final 24, certificado, verificação). **Revisão humana das 30 questões novas pendente.**
+
 ## Próximas etapas: lançamento público (planejado, não iniciado)
 Detalhe e checklist completo na nota do projeto no cérebro (`20-projetos/tempcpu.md`).
 0. Decisões de produto: nome, licença, compatibilidade declarada, gratuito.

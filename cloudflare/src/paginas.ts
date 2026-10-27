@@ -53,9 +53,9 @@ export function inicio(ctx: Contexto): string {
 <section class="heroi"><h1>Avaliação e certificado do Laboratório</h1>
 <p class="lead">Teste o que você aprendeu nas lições de machine learning do TempCPU. Se acertar pelo menos 80%, você recebe um certificado gratuito, com página de verificação válida por 12 meses.</p></section>
 <section class="grade">
-<article class="cartao"><h2>1. Nivelamento</h2><p>10 questões, sem cadastro e sem nota mínima. Mostra por qual lição começar. Não guarda nenhum dado pessoal.</p>
+<article class="cartao"><h2>1. Nivelamento</h2><p>16 questões, sem cadastro e sem nota mínima. Mostra por qual lição começar. Não guarda nenhum dado pessoal.</p>
 <p><a class="botao" href="/prova/nivelamento">Fazer o nivelamento</a></p></article>
-<article class="cartao"><h2>2. Avaliação final</h2><p>20 questões de múltipla escolha sobre as lições 1 a 3 (a avaliação das lições 4 e 5 ainda não existe). Exige cadastro com e-mail confirmado. Aprovação: 80% de acertos e pelo menos metade das questões de cada tema.</p>
+<article class="cartao"><h2>2. Avaliação final</h2><p>24 questões de múltipla escolha sobre as 5 lições. Exige cadastro com e-mail confirmado. Aprovação: 80% de acertos e pelo menos metade das questões de cada tema.</p>
 <p>${final}</p></article>
 <article class="cartao"><h2>3. Certificado</h2><p>Emitido pela ${e(ctx.env.EMISSOR_NOME || "Mais Valor Consultoria e Serviços")}. É um certificado de aproveitamento, <strong>sem acreditação</strong> de instituição de ensino e sem carga horária oficial.</p></article>
 </section>

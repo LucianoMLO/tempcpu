@@ -3,10 +3,15 @@ import { criarRng, embaralhar, type Rng } from "./rng.ts";
 
 export const NOTA_MINIMA_PCT = 80;
 export const MINIMO_POR_TEMA_PCT = 50;
-export const POR_TEMA_NA_FINAL = 4;
+export const POR_TEMA_NA_FINAL = 4; // até 5 temas: 20 questões
+export const POR_TEMA_NA_FINAL_MUITOS_TEMAS = 3; // 6 temas ou mais: 3 por tema (8 temas = 24 questões)
 export const FAIXA_DOMINADO_PCT = 75;
 export const FAIXA_REVISAR_PCT = 50;
-export const LICAO_DO_TEMA: Record<string, number> = { T1: 1, T2: 1, T3: 1, T4: 2, T5: 3 };
+export const LICAO_DO_TEMA: Record<string, number> = { T1: 1, T2: 1, T3: 1, T4: 2, T5: 3, T6: 4, T7: 5, T8: 3 };
+
+export function porTemaPadrao(nTemas: number): number {
+  return nTemas <= 5 ? POR_TEMA_NA_FINAL : POR_TEMA_NA_FINAL_MUITOS_TEMAS;
+}
 export const NOME_MIN = 3;
 export const NOME_MAX = 80;
 
@@ -100,12 +105,13 @@ export function sortearNivelamento(semente: number, banco: Banco): Prova {
   return { tipo: "nivelamento", semente, itens: ordem.map((q) => montar(q, rng)), versaoBanco: banco.versao };
 }
 
-export function sortearFinal(semente: number, anteriores: readonly string[], banco: Banco, porTema = POR_TEMA_NA_FINAL): Prova {
+export function sortearFinal(semente: number, anteriores: readonly string[], banco: Banco, porTemaPedido?: number): Prova {
   validarBanco(banco);
   const rng = criarRng(semente);
   const evitar = new Set(anteriores);
   const temas = [...new Set(banco.questoes.filter((q) => q.uso === "final").map((q) => q.tema))].sort();
   if (temas.length === 0) throw new Error("o banco não tem questões da avaliação final");
+  const porTema = porTemaPedido ?? porTemaPadrao(temas.length);
   let escolhidas: Questao[] = [];
   for (const tema of temas) {
     const pool = banco.questoes.filter((q) => q.uso === "final" && q.tema === tema);

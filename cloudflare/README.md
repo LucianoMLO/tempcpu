@@ -8,9 +8,9 @@ Páginas e API do nivelamento, da avaliação final e do certificado do Laborat�
 | Rota | O que faz |
 |---|---|
 | `/` | apresentação |
-| `/prova/nivelamento` | 10 questões, **sem cadastro** (prova anônima, sem dado pessoal) |
+| `/prova/nivelamento` | 16 questões, **sem cadastro** (prova anônima, sem dado pessoal) |
 | `/cadastro`, `/entrar`, `/confirmar` | cadastro com consentimento, link de acesso por e-mail (20 min, uso único), sem senha |
-| `/prova/final` | 20 questões (4 por tema), exige login; intervalo mínimo e limite diário entre tentativas |
+| `/prova/final` | 24 questões (3 por tema, 8 temas), exige login; intervalo mínimo e limite diário entre tentativas |
 | `/resultado/:id` | nota, por tema, o que revisar (a explicação só aparece depois da entrega) |
 | `/certificado/emitir/:id` → `/certificado/:codigo` | só para quem tem 80% e pelo menos metade de cada tema; página imprimível (salvar em PDF) com passo a passo do LinkedIn |
 | `/verificar/:codigo` | pública: nome, nota, datas e emissor (nunca o e-mail); válido, expirado (12 meses), revogado ou não encontrado |
@@ -26,10 +26,10 @@ npm install
 npm run banco:exemplo      # questões de mentira em banco/ativo.json (não versionado)
 npm run d1:local           # cria as tabelas no D1 local
 npm run dev                # http://localhost:8787  (o link de e-mail aparece no log, AMBIENTE=dev)
-npm test                   # 33 testes (D1 de mentira sobre node:sqlite)
+npm test                   # 36 testes (D1 de mentira sobre node:sqlite)
 npm run tipos
 ```
-Para usar as 50 questões reais (privadas): `npm run banco:real` (executa `tools/exportar_banco.py` com o ambiente do Laboratório). O arquivo `banco/ativo.json` tem as respostas e **não vai para o Git**.
+Para usar as 80 questões reais (privadas): `npm run banco:real` (executa `tools/exportar_banco.py` com o ambiente do Laboratório). O arquivo `banco/ativo.json` tem as respostas e **não vai para o Git**.
 
 ## Publicar (o que só você pode fazer)
 1. Conta Cloudflare e `npx wrangler login`.
