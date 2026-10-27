@@ -5,7 +5,7 @@
 
 ## Objetivo e usuário
 - **Objetivo:** cobrir os conceitos básicos que a v1 não explora: classificação, aprendizado sem rótulos (agrupamento e redução de dimensão), regularização, modelos mais fortes e validação cruzada, e outra forma de achar anomalia.
-- **Usuário:** o mesmo da v1, qualquer pessoa, sem pressupor nada. Valem os mesmos princípios: tudo local, só lê o histórico, termos explicados no Glossário (teste A11), semente visível, dado sintético com faixa "DADOS DE MENTIRA", resultado fraco mostrado como fraco.
+- **Usuário:** o mesmo da v1, qualquer pessoa, sem pressupor nada. Valem os mesmos princípios: tudo local, só lê o histórico, termos explicados no Glossário (teste A11), semente visível, dado sintético com faixa "DADOS SINTÉTICOS", resultado fraco mostrado como fraco.
 
 ## Resumo do que entra
 | Conceito | Onde entra | Tipo |

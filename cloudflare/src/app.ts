@@ -87,14 +87,18 @@ export function criarApp(deps: Deps) {
 
   const ip = (req: Request) => req.headers.get("CF-Connecting-IP") ?? "local";
 
-  async function enviarLink(req: Request, env: Env, aluno: Aluno): Promise<void> {
+  /** Devolve o link só quando o ambiente é de teste E o e-mail está na lista de teste (nunca em produção). */
+  async function enviarLink(req: Request, env: Env, aluno: Aluno): Promise<string | null> {
     const token = aleatorio(32);
     await db.criarToken(env.DB, await sha256Hex(token), aluno.id, agora() + TOKEN_S);
+    const link = `${origem(req, env)}/confirmar?t=${token}`;
     await enviarEmail(env, {
       para: aluno.email,
       assunto: "Seu acesso à avaliação do Laboratório TempCPU",
-      texto: `Olá, ${aluno.nome}.\n\nPara entrar, abra o link abaixo (vale por 20 minutos e só pode ser usado uma vez):\n\n${origem(req, env)}/confirmar?t=${token}\n\nSe você não pediu este acesso, ignore esta mensagem.\n`,
+      texto: `Olá, ${aluno.nome}.\n\nPara entrar, abra o link abaixo (vale por 20 minutos e só pode ser usado uma vez):\n\n${link}\n\nSe você não pediu este acesso, ignore esta mensagem.\n`,
     });
+    const teste = (env.TESTE_EMAILS ?? "").toLowerCase().split(",").map((x) => x.trim()).filter(Boolean);
+    return env.AMBIENTE === "dev" && teste.includes(aluno.email) ? link : null;
   }
 
   function carregarProva(l: LinhaProva): Prova {
@@ -167,8 +171,8 @@ export function criarApp(deps: Deps) {
         await db.criarAluno(env.DB, { id, nome, email, marketing: c.marketing === true, agora: agora() });
         existente = await db.alunoPorId(env.DB, id);
       }
-      if (existente) await enviarLink(req, env, existente);
-      return json({ ok: true, mensagem: "Se o e-mail estiver correto, enviamos um link de acesso. Abra-o em até 20 minutos." });
+      const linkTeste = existente ? await enviarLink(req, env, existente) : null;
+      return json({ ok: true, mensagem: "Se o e-mail estiver correto, enviamos um link de acesso. Abra-o em até 20 minutos.", ...(linkTeste ? { linkTeste } : {}) });
     }
 
     if (m === "POST" && caminho === "/api/entrar") {
@@ -183,8 +187,8 @@ export function criarApp(deps: Deps) {
       }
       await limiteOuErro(env, `link:${email}`, 5, 3600);
       const existente = await db.alunoPorEmail(env.DB, email);
-      if (existente) await enviarLink(req, env, existente);
-      return json({ ok: true, mensagem: "Se este e-mail tiver cadastro, enviamos um link de acesso. Abra-o em até 20 minutos." });
+      const linkTeste = existente ? await enviarLink(req, env, existente) : null;
+      return json({ ok: true, mensagem: "Se este e-mail tiver cadastro, enviamos um link de acesso. Abra-o em até 20 minutos.", ...(linkTeste ? { linkTeste } : {}) });
     }
 
     if (m === "POST" && caminho === "/api/confirmar") {

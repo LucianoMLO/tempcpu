@@ -116,7 +116,7 @@ class TestLicao2(BaseUI):
         self.raiz.update()
         self.assertEqual(lab.estado.fonte, "sintetico")
         self.assertTrue(lab.faixa_visivel)
-        self.assertIn("21 dias", texto(lab.atual.area))                       # lição reaberta com os dados de mentira
+        self.assertIn("21 dias", texto(lab.atual.area))                       # lição reaberta com os dados sintéticos
 
     def test_passo6_perguntas_e_conclusao(self):
         lab, lic = self.abrir()

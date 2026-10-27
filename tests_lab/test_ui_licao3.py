@@ -1,4 +1,4 @@
-"""Testes de interface da Lição 3 (dados de mentira com gabarito)."""
+"""Testes de interface da Lição 3 (dados sintéticos com gabarito)."""
 import sys
 import tkinter as tk
 import unittest
@@ -47,7 +47,7 @@ class TestLicao3(BaseUI):
         self.assertFalse(lab.faixa_visivel)
         lab.abrir_licao(3)
         self.raiz.update()
-        self.assertTrue(lab.faixa_visivel)                       # a lição 3 só usa dados de mentira
+        self.assertTrue(lab.faixa_visivel)                       # a lição 3 só usa dados sintéticos
         lab.mostrar_inicio()
         self.raiz.update()
         self.assertFalse(lab.faixa_visivel)

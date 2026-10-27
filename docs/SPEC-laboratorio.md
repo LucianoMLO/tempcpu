@@ -10,7 +10,7 @@
 ## Princípios (valem para tudo abaixo)
 1. **Opcional e separado.** O Laboratório é outro programa, aberto por um botão. O app **nunca** importa `scikit-learn` nem `numpy`: o app continua com ~13–19 MB (o Laboratório usa ~107 MB só ao importar a biblioteca, ~240 MB em disco).
 2. **Só lê.** Abre `historico.db` somente para leitura. Nada é gravado no banco, nada é enviado pela rede.
-3. **Verdade antes de graça.** Toda tela mostra de onde vêm os dados. Dado sintético tem faixa fixa "DADOS DE MENTIRA (sintéticos)". Resultado fraco é mostrado como fraco.
+3. **Verdade antes de graça.** Toda tela mostra de onde vêm os dados. Dado sintético tem faixa fixa "DADOS SINTÉTICOS (sintéticos)". Resultado fraco é mostrado como fraco.
 4. **Reprodutível.** Todo sorteio usa uma semente visível; a mesma semente dá o mesmo resultado.
 5. **Sem jargão solto.** Se um termo não está no Glossário, não aparece na tela (verificado por teste).
 
@@ -28,7 +28,7 @@
 | Início | Lições, fonte de dados (Meu histórico · Dados sintéticos), situação do ambiente, progresso |
 | Lição 1 · Regressão e sobreajuste | Prever a temperatura e ver o modelo "decorar" os dados |
 | Lição 2 · Quente para o que você faz | Descobrir o que é normal e achar minutos estranhos |
-| Lição 3 · Dados de mentira com gabarito | Gerar dados de relação conhecida e conferir o que o modelo descobre |
+| Lição 3 · Dados sintéticos com gabarito | Gerar dados de relação conhecida e conferir o que o modelo descobre |
 | Glossário | Todos os termos, com exemplo curto |
 | Sobre e privacidade | O que o Laboratório lê, grava e não faz |
 
@@ -115,7 +115,7 @@ Fórmula (a "verdade"): `temperatura = 38 + 4·sen(2π·(hora − 8)/24) + efeit
 **Suavização e sensibilidade (calibradas):** o resíduo passa por média móvel de 5 minutos antes do limite; sensibilidade padrão **2,5 × erro típico** (controle de 1,5 a 5).
 **Dados mínimos reais:** 7 dias e 5.000 minutos úteis; a tendência semanal pede ≥ 3 semanas, senão explica e mostra no sintético com poeira.
 
-## Lição 3 · Dados de mentira com gabarito
+## Lição 3 · Dados sintéticos com gabarito
 **Pergunta da lição:** "O que o modelo descobre quando eu sei a resposta certa?"
 **Passos**
 1. **Gerar.** Sliders dos `ParametrosSinteticos`; gráfico dos dados gerados e o **gabarito** (coeficientes verdadeiros) escrito na tela.
@@ -181,7 +181,7 @@ Cada item vira teste automático (rodado no ambiente do Laboratório) ou verific
 | A11 | Todo termo da lista do Glossário usado nas telas tem definição; nenhum termo fora da lista aparece | teste automático sobre os textos |
 | A12 | Cada estado da tabela "Estados obrigatórios" existe e é alcançável | roteiro manual |
 | A13 | **Preparar Laboratório**: cancelar na confirmação não cria nada; falha de rede deixa o app funcionando e sem pasta parcial | roteiro manual |
-| A14 | Faixa "DADOS DE MENTIRA" visível em toda tela que usa sintético | conferência visual |
+| A14 | Faixa "DADOS SINTÉTICOS" visível em toda tela que usa sintético | conferência visual |
 | A15 | As 3 lições completas ponta a ponta com sintético e (se houver dados) com o histórico real | roteiro manual |
 
 ## Estado de verificação (2026-10-25)

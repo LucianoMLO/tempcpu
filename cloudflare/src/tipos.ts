@@ -18,6 +18,9 @@ export interface Env {
   CONTATO_PRIVACIDADE?: string;
   INTERVALO_MIN_FINAL_S?: string;
   MAX_FINAIS_POR_DIA?: string;
+  /** Segredo (lista separada por vírgulas): em AMBIENTE=dev, o link de acesso dessas contas aparece na tela, sem e-mail. */
+  TESTE_EMAILS?: string;
+  PAGINA_PROJETO?: string;
   /** Só em testes: substitui o banco empacotado. */
   BANCO_TESTE?: Banco;
 }

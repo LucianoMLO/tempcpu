@@ -5,7 +5,7 @@
   "T2": "Treino, teste e sobreajuste",
   "T3": "Avaliar um modelo",
   "T4": "Anomalia e tendência",
-  "T5": "Dados de mentira com gabarito"
+  "T5": "Dados sintéticos com gabarito"
  },
  "questoes": [
   {

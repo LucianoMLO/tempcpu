@@ -95,7 +95,7 @@ class TestInicio(BaseUI):
         for n in (1, 2, 3):
             self.assertIn(T.LICOES[n][0], t)
         self.assertTrue(lab.faixa_visivel)
-        self.assertIn("DADOS DE MENTIRA", lab.faixa.cget("text"))
+        self.assertIn("DADOS SINTÉTICOS", lab.faixa.cget("text"))
 
     def test_as_tres_licoes_estao_disponiveis_e_nenhuma_concluida_no_comeco(self):
         lab = self.novo_lab()

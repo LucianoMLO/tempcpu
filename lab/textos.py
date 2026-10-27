@@ -6,7 +6,7 @@ Nada aqui é concatenado com dados do usuário: valores entram por `.format(...)
 
 # ---------------- geral ----------------
 TITULO_JANELA = "TempCPU — Laboratório"
-FAIXA_SINTETICA = "DADOS DE MENTIRA (sintéticos): servem para aprender; não dizem nada sobre o seu computador."
+FAIXA_SINTETICA = "DADOS SINTÉTICOS (sintéticos): servem para aprender; não dizem nada sobre o seu computador."
 BARRA_GLOSSARIO_VAZIA = "Termos sublinhados têm explicação: passe o mouse sobre eles."
 
 INICIO_TITULO = "Laboratório de machine learning"
@@ -42,7 +42,7 @@ LICOES = {
         "Veja um modelo aprender a prever a temperatura e depois decorar os dados."),
     2: ("Lição 2 · Quente para o que você faz",
         "Descubra o que é normal para o que o computador está fazendo e ache o que foge disso."),
-    3: ("Lição 3 · Dados de mentira com gabarito",
+    3: ("Lição 3 · Dados sintéticos com gabarito",
         "Invente dados com resposta conhecida e confira o que o modelo descobre."),
 }
 

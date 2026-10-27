@@ -50,6 +50,13 @@ export const FORMULARIO_JS = `
         .then(function (x) {
           if (x.ok && x.j.redirect) { location.href = x.j.redirect; return; }
           falar(msg, x.j.mensagem || x.j.erro || (x.ok ? "Pronto." : "Algo deu errado."), !x.ok);
+          if (x.ok && x.j.linkTeste && msg) {
+            var a = document.createElement("a");
+            a.href = x.j.linkTeste;
+            a.textContent = "Modo de teste: abrir o link de acesso";
+            msg.appendChild(document.createElement("br"));
+            msg.appendChild(a);
+          }
           if (botao) botao.disabled = !x.ok ? false : botao.disabled;
         })
         .catch(function () { falar(msg, "Sem conexão. Tente de novo.", true); if (botao) botao.disabled = false; });

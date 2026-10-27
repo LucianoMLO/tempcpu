@@ -1,4 +1,4 @@
-"""Lição 3 · Dados de mentira com gabarito (o que o modelo descobre quando você sabe a resposta certa)."""
+"""Lição 3 · Dados sintéticos com gabarito (o que o modelo descobre quando você sabe a resposta certa)."""
 from __future__ import annotations
 
 import random

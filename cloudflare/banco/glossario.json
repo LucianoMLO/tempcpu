@@ -127,7 +127,7 @@
  "gabarito": {
   "nome": "gabarito",
   "definicao": "A resposta certa, conhecida de antemão. Só existe em dados inventados; nos dados reais ninguém tem o gabarito.",
-  "exemplo": "Nos dados de mentira, o efeito do uso é exatamente 0,35 °C por 1%."
+  "exemplo": "Nos dados sintéticos, o efeito do uso é exatamente 0,35 °C por 1%."
  },
  "coeficiente": {
   "nome": "coeficiente",

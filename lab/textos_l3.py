@@ -1,4 +1,4 @@
-"""Textos da Lição 3 · Dados de mentira com gabarito (importados por `lab.textos`)."""
+"""Textos da Lição 3 · Dados sintéticos com gabarito (importados por `lab.textos`)."""
 
 L3_PASSOS = ["Gerar os dados", "O que o modelo descobre", "Estragar de propósito", "Poeira escondida",
              "Usar nas outras lições", "Resumo e perguntas"]

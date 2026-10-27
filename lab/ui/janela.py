@@ -40,7 +40,7 @@ class Laboratorio:
                               highlightthickness=1)
         self.barra.pack(side="bottom", fill="x")
         self.faixa_visivel = False
-        self.faixa_forcada = False                 # a lição 3 só usa dados de mentira, mesmo com a fonte "real" escolhida
+        self.faixa_forcada = False                 # a lição 3 só usa dados sintéticos, mesmo com a fonte "real" escolhida
         self.conteudo.pack(fill="both", expand=True)
         raiz.bind("<Configure>", lambda e: self.barra.config(wraplength=max(300, raiz.winfo_width() - 32)) if e.widget is raiz else None)
 
@@ -63,7 +63,7 @@ class Laboratorio:
         self.atualizar_faixa()
 
     def atualizar_faixa(self) -> None:
-        """A faixa "DADOS DE MENTIRA" fica visível sempre que os dados em uso são sintéticos."""
+        """A faixa "DADOS SINTÉTICOS" fica visível sempre que os dados em uso são sintéticos."""
         precisa = self.faixa_forcada or self.estado.conjunto().origem == "sintetico"
         if precisa and not self.faixa_visivel:
             self.faixa.pack(side="top", fill="x", before=self.conteudo)

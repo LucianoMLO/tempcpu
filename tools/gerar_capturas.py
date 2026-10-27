@@ -5,7 +5,7 @@ o leitor de temperatura, a GPU, o SoC, a ventoinha e o retrato do sistema (proce
 falsos e usam nomes genéricos. Uso:
 
     .venv\\Scripts\\python tools\\gerar_capturas.py            # tempcpu e historico
-    python -m lab --sintetico --licao 1 --foto site\\img\\lab1.png   # o Laboratório já usa dados de mentira
+    python -m lab --sintetico --licao 1 --foto site\\img\\lab1.png   # o Laboratório já usa dados sintéticos
 """
 from __future__ import annotations
 

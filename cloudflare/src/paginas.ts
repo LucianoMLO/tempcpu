@@ -35,7 +35,7 @@ export function pagina(ctx: Contexto, titulo: string, corpo: string, opts: { tur
 <link rel="stylesheet" href="/estilo.css">${ts}</head>
 <body${opts.imprimir ? ' class="imprimir"' : ""}>
 <header class="topo"><a class="marca" href="/"><span class="ponto"></span>TempCPU · Avaliação</a>
-<nav><a href="/verificar">Verificar certificado</a>${nav}</nav></header>
+<nav><a href="${e(ctx.env.PAGINA_PROJETO || "https://lucianomlo.github.io/tempcpu/")}">Página do projeto</a><a href="/verificar">Verificar certificado</a>${nav}</nav></header>
 <main>${corpo}</main>
 <footer><p>${e(ctx.env.EMISSOR_NOME || "Mais Valor Consultoria e Serviços")} · <a href="/privacidade">Privacidade</a></p></footer>
 ${scripts}</body></html>`;

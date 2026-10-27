@@ -86,7 +86,7 @@ TERMOS: dict[str, tuple[str, str, str, str]] = {
                   "O resíduo semanal subindo 1,4 °C por semana."),
     "gabarito": ("gabarito", "ground truth",
                  "A resposta certa, conhecida de antemão. Só existe em dados inventados; nos dados reais ninguém tem o gabarito.",
-                 "Nos dados de mentira, o efeito do uso é exatamente 0,35 °C por 1%."),
+                 "Nos dados sintéticos, o efeito do uso é exatamente 0,35 °C por 1%."),
     "coeficiente": ("coeficiente", "coefficient",
                     "Quanto a previsão muda quando uma entrada aumenta uma unidade, mantendo as outras iguais.",
                     "Coeficiente do uso = 0,35: cada 1% a mais de uso soma 0,35 °C."),

@@ -30,7 +30,7 @@
 | T2 Treino, teste e sobreajuste | 1 | dividir por tempo × embaralhar, decorar × aprender, curva de erro, profundidade |
 | T3 Avaliar um modelo | 1 e 3 | erro médio, R² (e quando é negativo), palpite de referência (baseline), vazamento (consequência × causa), importância |
 | T4 Anomalia e tendência | 2 | temperatura esperada, resíduo, episódio, sensibilidade (falso alarme × alarme perdido), tendência semanal |
-| T5 Dados de mentira com gabarito | 3 | gabarito, ruído, poucos dados, entradas que andam juntas (correlação), o que um modelo pode ou não descobrir |
+| T5 Dados sintéticos com gabarito | 3 | gabarito, ruído, poucos dados, entradas que andam juntas (correlação), o que um modelo pode ou não descobrir |
 
 ## Banco de questões
 - **50 questões na v1.1**: 10 por tema. Em cada tema, **2 são do nivelamento** (nível básico, fixas) e **8 da avaliação final** (nível básico a intermediário).

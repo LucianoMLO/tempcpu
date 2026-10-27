@@ -32,6 +32,6 @@ SOBRE_BLOCOS = [
      "As sugestões das lições são indícios, não diagnóstico: para decidir sobre limpeza ou conserto, confirme na prática."),
     ("Dados sintéticos",
      "Nas lições e na Lição 3 você pode usar ⟦dados_sinteticos⟧: são inventados, têm gabarito conhecido e **não dizem nada sobre o seu "
-     "computador**. Sempre que estiverem em uso, aparece a faixa \"DADOS DE MENTIRA\" no alto da janela."),
+     "computador**. Sempre que estiverem em uso, aparece a faixa \"DADOS SINTÉTICOS\" no alto da janela."),
 ]
 SOBRE_VERSAO = "Laboratório do TempCPU, versão {versao}."

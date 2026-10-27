@@ -315,3 +315,21 @@ test("sem o segredo de assinatura, em produção, o certificado não é emitido"
   assert.equal((await x.c.json("/api/certificado", { provaId: id, nome: "Maria Exemplo" })).status, 500);
   void ORIGEM;
 });
+
+test("o link aparece na tela só em ambiente de teste e só para e-mails da lista de teste", async () => {
+  const x = novo({ TESTE_EMAILS: "teste@exemplo.com, Outro@Exemplo.com" });
+  const a = await x.c.json("/api/cadastro", { nome: "Pessoa Teste", email: "teste@exemplo.com", consentimento: true });
+  assert.match(String(a.j.linkTeste), /\/confirmar\?t=/);
+  const b = await x.c.json("/api/cadastro", { nome: "Outra Pessoa", email: "fora@exemplo.com", consentimento: true });
+  assert.equal(b.j.linkTeste, undefined);
+  const c2 = await x.c.json("/api/entrar", { email: "teste@exemplo.com" });
+  assert.match(String(c2.j.linkTeste), /\/confirmar\?t=/);
+  assert.equal((await x.c.json("/api/entrar", { email: "ninguem@exemplo.com" })).j.linkTeste, undefined); // não revela cadastro
+  const prod = novo({ AMBIENTE: "producao", TESTE_EMAILS: "teste@exemplo.com", TURNSTILE_SECRET: "x" });
+  assert.equal((await prod.c.json("/api/entrar", { email: "teste@exemplo.com" })).j.linkTeste, undefined);   // em produção nunca
+});
+
+test("as páginas ligam à página do projeto", async () => {
+  const { c } = novo();
+  assert.match(await (await c.pedir("/")).text(), /href="https:\/\/lucianomlo\.github\.io\/tempcpu\/">Página do projeto</);
+});

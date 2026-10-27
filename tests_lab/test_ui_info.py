@@ -86,7 +86,7 @@ class TestNavegacaoEInformacao(BaseUI):
         self.raiz.update()
         t = NL.join(todos_os_textos(lab.atual))
         for trecho in ("somente para leitura", "Nomes de programas nunca são lidos", "arquivo pequeno de progresso",
-                       "Não envia nada pela internet", "não diagnóstico".replace("não ", ""), "DADOS DE MENTIRA",
+                       "Não envia nada pela internet", "não diagnóstico".replace("não ", ""), "DADOS SINTÉTICOS",
                        f"versão {VERSAO}"):
             self.assertIn(trecho, t, trecho)
 
