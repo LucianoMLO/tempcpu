@@ -326,7 +326,8 @@ def amostra_de(conj: Conjunto, quantos: int, semente: int) -> Conjunto:
     """Subconjunto de `quantos` minutos sorteados (mantendo a ordem do tempo): simula ter poucos exemplos."""
     idx = np.sort(np.random.default_rng(semente).choice(conj.n, size=min(quantos, conj.n), replace=False))
     return Conjunto(conj.origem, conj.ts[idx], {k: v[idx] for k, v in conj.dados.items()}, conj.semente, conj.parametros,
-                    conj.gabarito, None if conj.anomalia is None else conj.anomalia[idx])
+                    conj.gabarito, None if conj.anomalia is None else conj.anomalia[idx],
+                    None if conj.regime is None else conj.regime[idx])
 
 
 def avaliar_descoberta(params: ParametrosSinteticos, sementes: range | list[int] = range(1, 9),

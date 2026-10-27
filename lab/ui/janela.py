@@ -89,8 +89,8 @@ class Laboratorio:
         self._trocar(TelaSobre(self))
 
     def abrir_licao(self, numero: int) -> None:
-        conj = self.estado.conjunto(numero if numero == 2 else None)
-        ok, msg = verificar_minimos(conj, numero) if numero in (1, 2) else (True, "")
+        conj = self.estado.conjunto(numero if numero in (2, 4, 5) else None)
+        ok, msg = verificar_minimos(conj, numero) if numero in (1, 2, 4, 5) else (True, "")
         if not ok:
             self._trocar(self._tela_poucos_dados(msg))
             return
@@ -98,6 +98,10 @@ class Laboratorio:
             from lab.ui.licao1 import criar
         elif numero == 2:
             from lab.ui.licao2 import criar
+        elif numero == 4:
+            from lab.ui.licao4 import criar
+        elif numero == 5:
+            from lab.ui.licao5 import criar
         else:
             from lab.ui.licao3 import criar
         self._trocar(criar(self))

@@ -65,24 +65,27 @@ def gabarito_de(p: ParametrosSinteticos) -> dict[str, float]:
             "hora_cos": -AMPLITUDE_HORA_C * float(np.sin(fase))}
 
 
-def _uso(rng: np.random.Generator, hora: np.ndarray) -> np.ndarray:
-    """Segmentos de ociosidade, trabalho leve e rajadas pesadas; mais rajadas em horário comercial."""
+def _uso(rng: np.random.Generator, hora: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    """Segmentos de ociosidade, trabalho leve e rajadas pesadas; mais rajadas em horário comercial.
+    Devolve também o regime de cada minuto (0 ocioso, 1 leve, 2 pesado): o gabarito da lição de agrupamento."""
     n = len(hora)
     uso = np.empty(n)
+    regime = np.empty(n, dtype=int)
     i = 0
     while i < n:
         trabalho = 9 <= hora[i] < 12 or 14 <= hora[i] < 18
         p_pesado, p_leve = (0.35, 0.35) if trabalho else (0.08, 0.25)
         r = rng.random()
         if r < p_pesado:
-            dur, nivel, desvio = int(rng.integers(3, 21)), 75.0, 12.0
+            dur, nivel, desvio, reg = int(rng.integers(3, 21)), 75.0, 12.0, 2
         elif r < p_pesado + p_leve:
-            dur, nivel, desvio = int(rng.integers(5, 31)), 30.0, 8.0
+            dur, nivel, desvio, reg = int(rng.integers(5, 31)), 30.0, 8.0, 1
         else:
-            dur, nivel, desvio = int(rng.integers(5, 41)), 10.0, 4.0
+            dur, nivel, desvio, reg = int(rng.integers(5, 41)), 10.0, 4.0, 0
         uso[i:i + dur] = rng.normal(nivel, desvio)
+        regime[i:i + dur] = reg
         i += dur
-    return np.clip(uso + rng.normal(0, 3, n), 1, 100)
+    return np.clip(uso + rng.normal(0, 3, n), 1, 100), regime
 
 
 def _tomada(rng: np.random.Generator, n: int) -> np.ndarray:
@@ -124,7 +127,7 @@ def gerar(p: ParametrosSinteticos) -> Conjunto:
     hora = (HORA_INICIO + minuto_do_dia // 60).astype(float)
     ts = INICIO_FIXO + dia_idx.astype(np.int64) * 86400 + (HORA_INICIO * 60 + minuto_do_dia).astype(np.int64) * 60
 
-    uso = _uso(rng, hora)
+    uso, regime = _uso(rng, hora)
     z = (uso - uso.mean()) / uso.std()
     w = p.correlacao_uso_freq * z + np.sqrt(1 - p.correlacao_uso_freq ** 2) * rng.normal(size=n)
     freq = np.clip(3000 + 500 * w, 1400, 4300)
@@ -148,4 +151,4 @@ def gerar(p: ParametrosSinteticos) -> Conjunto:
     dados = {"temperatura": temp, "uso": uso, "freq": freq, "tomada": tomada, "hora": hora,
              "ventoinha": ventoinha, "dia": (ts - ts[0]) / 86400.0}
     return Conjunto("sintetico", ts, dados, semente=p.semente, parametros=p, gabarito=gabarito_de(p),
-                    anomalia=anomalia, avisos=avisos)
+                    anomalia=anomalia, regime=regime, avisos=avisos)

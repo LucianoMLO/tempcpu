@@ -1,7 +1,9 @@
 """Utilitários comuns dos testes do Laboratório (rodam no ambiente do Laboratório, com numpy e scikit-learn)."""
+import os
 import sys
 from pathlib import Path
 
+os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")      # menos memória nas bibliotecas numéricas durante os testes
 RAIZ = Path(__file__).resolve().parents[1]
 if str(RAIZ) not in sys.path:
     sys.path.insert(0, str(RAIZ))

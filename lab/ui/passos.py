@@ -116,11 +116,16 @@ class LicaoPassos(tk.Frame):
     def _desenhar_trilha(self) -> None:
         for w in self.trilha.winfo_children():
             w.destroy()
+        por_linha = 7 if len(self.passos) <= 7 else 5            # lições longas quebram a trilha em duas linhas
+        linha = None
         for i, p in enumerate(self.passos):
+            if i % por_linha == 0:
+                linha = tk.Frame(self.trilha, bg=FUNDO)
+                linha.pack(anchor="w", pady=(0, 3))
             ativo = i == self.indice
             feito = i in self.visitados and not ativo
             cor = COR_ATIVO if ativo else COR_FEITO if feito else GRADE
-            b = tk.Button(self.trilha, text=f"{i + 1}  {p.titulo}", relief="flat", bd=0, cursor="hand2" if i in self.visitados else "arrow",
+            b = tk.Button(linha, text=f"{i + 1}  {p.titulo}", relief="flat", bd=0, cursor="hand2" if i in self.visitados else "arrow",
                           font=(FONTE, 9, "bold" if ativo else "normal"), bg=cor, fg="white" if (ativo or feito) else SUAVE,
                           activebackground=cor, activeforeground="white", padx=10, pady=3,
                           command=(lambda k=i: self.mostrar(k)) if i in self.visitados else (lambda: None))

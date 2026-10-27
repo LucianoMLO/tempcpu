@@ -120,15 +120,15 @@ class TestLicao2(BaseUI):
 
     def test_passo6_perguntas_e_conclusao(self):
         lab, lic = self.abrir()
-        lic.mostrar(5)
+        lic.mostrar(6)
         self.raiz.update()
         quiz = achar_atributo(lic.area, "quiz").quiz
-        self.assertEqual(len(quiz.perguntas), 3)
+        self.assertEqual(len(quiz.perguntas), 4)
         for i, q in enumerate(quiz.perguntas):
             quiz.vars[i].set(q["correta"])
             quiz.responder(i)
-        self.assertEqual(quiz.placar.cget("text"), "Você acertou 3 de 3.")
-        self.assertEqual(lab.estado.progresso.acertos(2), (3, 3))
+        self.assertEqual(quiz.placar.cget("text"), "Você acertou 4 de 4.")
+        self.assertEqual(lab.estado.progresso.acertos(2), (4, 4))
         lic.ir(1)
         self.raiz.update()
         self.assertTrue(lab.estado.progresso.concluida(2))

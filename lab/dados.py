@@ -32,7 +32,7 @@ VARIAVEIS: dict[str, tuple[str, str | None]] = {
 ENTRADAS_PADRAO = ["uso", "freq", "tomada", "hora"]
 
 # o que cada lição exige de dados reais: (dias, minutos úteis)
-MINIMOS = {1: (3, 2_000), 2: (7, 5_000)}
+MINIMOS = {1: (3, 2_000), 2: (7, 5_000), 4: (5, 4_000), 5: (3, 2_000)}
 
 
 class SemBanco(Exception):
@@ -52,6 +52,7 @@ class Conjunto:
     parametros: object | None = None         # ParametrosSinteticos (só no sintético)
     gabarito: dict[str, float] | None = None  # coeficientes verdadeiros (só no sintético)
     anomalia: np.ndarray | None = None       # True nos minutos de episódio injetado (só no sintético)
+    regime: np.ndarray | None = None         # 0 = ocioso, 1 = trabalho leve, 2 = carga alta, minuto a minuto (só no sintético)
     avisos: list[str] = field(default_factory=list)
     filtragem: dict[str, int] | None = None  # só no real: quantos minutos gravados foram aproveitados ou descartados, e por quê
 

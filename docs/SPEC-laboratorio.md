@@ -10,7 +10,7 @@
 ## Princípios (valem para tudo abaixo)
 1. **Opcional e separado.** O Laboratório é outro programa, aberto por um botão. O app **nunca** importa `scikit-learn` nem `numpy`: o app continua com ~13–19 MB (o Laboratório usa ~107 MB só ao importar a biblioteca, ~240 MB em disco).
 2. **Só lê.** Abre `historico.db` somente para leitura. Nada é gravado no banco, nada é enviado pela rede.
-3. **Verdade antes de graça.** Toda tela mostra de onde vêm os dados. Dado sintético tem faixa fixa "DADOS SINTÉTICOS (sintéticos)". Resultado fraco é mostrado como fraco.
+3. **Verdade antes de graça.** Toda tela mostra de onde vêm os dados. Dado sintético tem faixa fixa "DADOS SINTÉTICOS (inventados)". Resultado fraco é mostrado como fraco.
 4. **Reprodutível.** Todo sorteio usa uma semente visível; a mesma semente dá o mesmo resultado.
 5. **Sem jargão solto.** Se um termo não está no Glossário, não aparece na tela (verificado por teste).
 

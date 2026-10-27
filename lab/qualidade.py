@@ -154,7 +154,7 @@ def analisar(conj: Conjunto) -> Relatorio | None:
 
 def _prontidao(rel: Relatorio) -> dict[int, Prontidao]:
     pronto = {}
-    for licao in (1, 2):
+    for licao in (1, 2, 4, 5):
         min_dias, min_minutos = MINIMOS[licao]
         pode = rel.dias >= min_dias and rel.n >= min_minutos
         motivos = []

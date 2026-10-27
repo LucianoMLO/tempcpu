@@ -10,7 +10,7 @@ from lab.ui.passos import botao
 from lab.ui.rico import TextoRico
 from tema import BORDA, CARTAO, FONTE, FUNDO, GRADE, SUAVE, TEXTO, ZONAS, cartao
 
-LICOES_PRONTAS = {1, 2, 3}
+LICOES_PRONTAS = {1, 2, 3, 4, 5}
 COR_NOTA = {"boa": ZONAS["normal"][1], "regular": ZONAS["atencao"][1], "fraca": ZONAS["quente"][1]}
 
 

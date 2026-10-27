@@ -23,7 +23,8 @@ MIN_LINHAS_VENTOINHA = 200
 
 
 def criar(janela) -> LicaoPassos:
-    funcoes = [passo1, passo2, passo3, passo4, passo5, passo6]
+    from lab.ui.passos_novos import passo_validacao, passo_boosting
+    funcoes = [passo1, passo2, passo3, passo4, passo5, passo_validacao, passo_boosting, passo6]
     passos = [Passo(t, f) for t, f in zip(T.L1_PASSOS, funcoes)]
 
     def concluir() -> None:

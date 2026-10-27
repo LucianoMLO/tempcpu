@@ -24,7 +24,8 @@ COR_VERDADE = "#3f4f66"
 
 
 def criar(janela) -> LicaoPassos:
-    funcoes = [passo1, passo2, passo3, passo4, passo5, passo6]
+    from lab.ui.passos_novos import passo_isolamento
+    funcoes = [passo1, passo2, passo3, passo4, passo5, passo_isolamento, passo6]
     passos = [Passo(t, f) for t, f in zip(T.L2_PASSOS, funcoes)]
 
     def concluir() -> None:

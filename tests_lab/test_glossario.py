@@ -22,9 +22,17 @@ VIGIADOS = {
     "mediana": r"\bmediana\b", "tendencia": r"\btendência\b", "gabarito": r"\bgabarito\b",
     "coeficiente": r"\bcoeficientes?\b", "colinearidade": r"\bcolinearidade\b", "semente": r"\bsemente\b",
     "dados_sinteticos": r"\bdados sintéticos\b",
+    # lições novas (v1.2)
+    "validacao_cruzada": r"validação cruzada", "boosting": r"\bboosting\b", "isolation_forest": r"Isolation Forest",
+    "regularizacao": r"\bregulariza[çc][ãa]o\b", "ridge": r"\bridge\b", "lasso": r"\blasso\b",
+    "regressao_logistica": r"regress[ãa]o log[ií]stica", "classificacao": r"\bclassifica[çc][ãa]o\b",
+    "desbalanceada": r"classe desbalanceada", "acuracia": r"\bacurácia\b", "matriz_confusao": r"matriz de confusão",
+    "precisao": r"\bprecisão\b", "revocacao": r"\brevocação\b", "vizinhos": r"k-vizinhos", "agrupamento": r"\bagrupamento\b",
+    "kmeans": r"k-means", "inercia": r"\binércia\b", "silhueta": r"\bsilhueta\b", "pureza": r"\bpureza\b",
+    "pca": r"componentes principais", "sem_rotulos": r"sem rótulos",
 }
 JARGAO_PROIBIDO = [r"\boverfitting\b", r"\bunderfitting\b", r"\bfeatures?\b", r"\btarget\b", r"\bdataset\b", r"\btest set\b",
-                   r"\baccuracy\b", r"\bregress[ãa]o\b", r"\bhiperpar", r"\bvalida[çc][ãa]o cruzada\b", r"\bcross.?validation\b"]
+                   r"\baccuracy\b", r"\bhiperpar", r"\bcross.?validation\b"]
 MARCADOR = re.compile(r"⟦[^⟧]*⟧")
 
 

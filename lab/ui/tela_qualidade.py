@@ -97,7 +97,7 @@ class TelaQualidade(tk.Frame):
     def _prontidao(self, rel: Relatorio) -> None:
         c = cartao(self.area.interno, T.QUAL_PRONTIDAO_TITULO)
         c.pack(fill="x", pady=6)
-        for n in (1, 2, 3):
+        for n in (1, 2, 3, 4, 5):
             p = rel.prontidao[n]
             cor = COR_NOTA["boa" if p.recomendada else "regular" if p.pode else "fraca"]
             tk.Label(c, text=frase_da_prontidao(p), bg=CARTAO, fg=cor, font=(FONTE, 10, "bold"), anchor="w").pack(fill="x", pady=(4, 0))

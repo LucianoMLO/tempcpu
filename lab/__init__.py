@@ -2,4 +2,4 @@
 
 Roda só no ambiente próprio do Laboratório (numpy e scikit-learn); o app nunca importa este pacote.
 """
-VERSAO = "0.1"
+VERSAO = "0.2"

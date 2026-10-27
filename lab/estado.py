@@ -49,11 +49,14 @@ class Estado:
         """Parâmetros sintéticos para a lição. A lição 2 precisa de ≥ 21 dias, episódios escondidos para achar e
         poeira para a tendência: se o aprendiz não escolheu valores na lição 3, usa os padrões da lição (21 dias, 0,2 °C/dia
         e 10 episódios). Se ele escolheu, os valores dele valem, inclusive zero."""
-        if licao != 2 or self.params_do_aprendiz:
+        if licao not in (2, 4, 5) or self.params_do_aprendiz:
             return self.params
         p = self.params
-        return replace(p, dias=max(p.dias, 21), episodios=p.episodios or 10,
-                       poeira_por_dia=p.poeira_por_dia or 0.2)
+        if licao == 2:
+            return replace(p, dias=max(p.dias, 21), episodios=p.episodios or 10,
+                           poeira_por_dia=p.poeira_por_dia or 0.2)
+        # lições 4 e 5: 21 dias, sem episódios nem poeira (a classe rara vem do calor do próprio uso, e os grupos não se misturam com a deriva)
+        return replace(p, dias=max(p.dias, 21), episodios=0, poeira_por_dia=0.0)
 
     def conjunto(self, licao: int | None = None) -> Conjunto:
         if self.fonte == "real" and self.real is not None:

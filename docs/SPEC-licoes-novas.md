@@ -108,3 +108,24 @@ Redes neurais (exigem escala, épocas e mais cuidado do que um passo curto compo
 ## Questões em aberto
 1. Priorizar tudo na v1.2 ou entregar em duas levas (1ª: Ridge, Isolation Forest, classificação; 2ª: k-means/PCA, boosting, validação cruzada)?
 2. Os nomes das lições novas ("Em qual faixa está?", "Descobrir grupos sem gabarito") estão bons?
+
+## Estado de verificação (2026-10-27) — construído e calibrado
+**Status:** implementado (núcleo `lab/modelos2.py`, textos `lab/textos_novos.py`, `textos_l4.py`, `textos_l5.py`, telas `lab/ui/passos_novos.py`, `licao4.py`, `licao5.py`). As duas questões em aberto foram decididas assim: tudo de uma vez, e os nomes "Em qual faixa está?" e "Descobrir grupos sem gabarito" mantidos. Os passos novos entram **antes** do "Resumo e perguntas" (Lição 1 tem 8 passos; Lições 2 e 3, 7). Os regimes verdadeiros da Lição 5 vêm do próprio gerador (`Conjunto.regime`: ocioso, trabalho leve, carga pesada), sem parâmetro novo.
+
+Números medidos com o gerador (sementes 1 a 8, parâmetros padrão salvo indicação) e o que cada critério virou:
+| Critério | Medido | Resultado |
+|---|---|---|
+| C2 validação cruzada | escolhe profundidade 8 ou 9 em todas as sementes; o teste escolheria 7 a 9; diferença de erro no teste ≤ 0,016 °C | **Aprovado**; blocos contíguos em ordem de tempo (`KFold` sem embaralhar) |
+| C3 boosting | erro de treino só cai; teste cai de ~6 a 7 °C na rodada 1 para ~2,0 °C e fica em platô (melhor rodada 68 a 166 de 200); mínimo 1,92 a 2,10 °C contra 2,16 a 2,37 da melhor árvore e 1,81 a 2,06 do linear | **Aprovado**; sem sobreajuste forte em 200 rodadas |
+| C4 Isolation Forest (21 dias, 10 episódios, poeira 0,2) | acha 0 a 40% dos episódios com 1 a 10% de minutos estranhos e 1 a 6% de falsos alarmes; o método do resíduo acha **10 de 10** com ≤ 1,6% de falsos | **O texto da tela mostra os números medidos**: o Isolation Forest perde, porque calor com carga alta não é raro |
+| C5 Ridge | **não melhora** o coeficiente do uso (erro de 17 a 64% contra 5,6 a 8,5% do linear, com 150 minutos e correlação 0,95): reparte o mérito com a frequência e encolhe tudo | **Afirmação removida**; a tela mostra o que acontece e o teste `test_o_ridge_nao_melhora_o_coeficiente_do_uso_aqui` registra o fato |
+| C6 Lasso | erro do uso 12,6% → 9,9% → 7,8% (λ = 0, 0,03, 0,1; 60 minutos); com 300 minutos 5,9% → 1,5% (λ = 0,1); zera a frequência em 2 a 5 de 20 sorteios com λ = 0,03 | **Aprovado em média, não em toda amostra**; a tela diz que varia de amostra para amostra |
+| C7 classificação (limite no percentil 90, ~66 °C) | "nunca avisa" 0,89 a 0,90 de acurácia e 0% de revocação; os três modelos 0,97 a 0,98 de acurácia, precisão 0,84 a 0,94, revocação 0,82 a 0,98 | **Aprovado** |
+| C8 limite de decisão | revocação e número de avisos não aumentam com o limite; precisão em 0,9 maior que em 0,1 | **Aprovado** |
+| C9 k-means (21 dias) | pureza com k = 3: 0,72 a 0,76; k = 4: 0,88 a 0,90; k = 2: 0,71 a 0,76; ruído 6 °C derruba a pureza (k = 4: 0,82 a 0,84). A silhueta é maior em **k = 2** (0,56 a 0,61) | **Aprovado**; é uma boa lição: a silhueta não aponta para os 3 regimes verdadeiros |
+| C10 PCA | 1º componente explica 57 a 61%, 2 componentes ~86%; uso, frequência e temperatura entram com o mesmo sinal (cargas 0,49 a 0,61) | **Aprovado** |
+| C11 glossário | 25 termos novos; teste A11 cobre os textos novos | **Aprovado** |
+| C12 rede e desempenho | nenhum módulo de rede; passos novos rodam em segundos | **Aprovado** (A10 não foi remedido formalmente) |
+| C13 progresso | lições 4 e 5 gravam e releem conclusão | **Aprovado** |
+
+**Não feito:** as questões da **avaliação** para os novos temas (T6 a T8) e o ajuste do banco para 80 questões e da final para 24; o Worker da avaliação continua cobrindo só as lições 1 a 3 (o texto da página já diz isso). **Não testado:** as lições novas com histórico real de verdade (poucos dias de dados) e a medição A10 formal de pico de memória e tempo dos novos treinos.

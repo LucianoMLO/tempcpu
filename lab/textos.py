@@ -6,7 +6,7 @@ Nada aqui é concatenado com dados do usuário: valores entram por `.format(...)
 
 # ---------------- geral ----------------
 TITULO_JANELA = "TempCPU — Laboratório"
-FAIXA_SINTETICA = "DADOS SINTÉTICOS (sintéticos): servem para aprender; não dizem nada sobre o seu computador."
+FAIXA_SINTETICA = "DADOS SINTÉTICOS (inventados): servem para aprender; não dizem nada sobre o seu computador."
 BARRA_GLOSSARIO_VAZIA = "Termos sublinhados têm explicação: passe o mouse sobre eles."
 
 INICIO_TITULO = "Laboratório de machine learning"
@@ -44,6 +44,10 @@ LICOES = {
         "Descubra o que é normal para o que o computador está fazendo e ache o que foge disso."),
     3: ("Lição 3 · Dados sintéticos com gabarito",
         "Invente dados com resposta conhecida e confira o que o modelo descobre."),
+    4: ("Lição 4 · Em qual faixa está?",
+        "Em vez de prever um número, preveja se vai passar de um limite e aprenda por que acertar muito pode enganar."),
+    5: ("Lição 5 · Descobrir grupos sem gabarito",
+        "Deixe o computador achar sozinho os modos de uso, sem ninguém dizer quais são."),
 }
 
 # ---------------- estados de tela ----------------
@@ -146,7 +150,7 @@ L1_RESUMO = [
     "Modelo simples demais erra tudo (⟦subajuste⟧); complexo demais decora o treino (⟦sobreajuste⟧). O melhor fica no meio.",
     "Compare sempre com um ⟦baseline⟧ e desconfie de entradas que são **consequência** do que você quer prever (⟦vazamento⟧).",
 ]
-QUIZ_TITULO = "Três perguntas para fixar"
+QUIZ_TITULO = "Perguntas para fixar"
 BOTAO_RESPONDER = "Responder"
 QUIZ_ACERTOU = "Correto! "
 QUIZ_ERROU = "Não foi dessa vez. "
@@ -176,3 +180,6 @@ from lab.textos_l2 import *  # noqa: E402,F401,F403  (textos da lição 2)
 from lab.textos_l3 import *  # noqa: E402,F401,F403  (textos da lição 3)
 from lab.textos_info import *  # noqa: E402,F401,F403  (navegação, glossário e sobre)
 from lab.textos_qualidade import *  # noqa: E402,F401,F403  (qualidade dos dados)
+from lab.textos_l4 import *  # noqa: E402,F401,F403  (textos da lição 4)
+from lab.textos_l5 import *  # noqa: E402,F401,F403  (textos da lição 5)
+from lab.textos_novos import *  # noqa: E402,F401,F403  (passos novos das lições 1 a 3; deve vir por último)

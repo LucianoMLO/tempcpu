@@ -141,13 +141,13 @@ class TestLicao3(BaseUI):
 
     def test_passo6_perguntas_e_conclusao(self):
         lab, lic = self.abrir()
-        lic.mostrar(5)
+        lic.mostrar(6)
         self.raiz.update()
         quiz = achar_atributo(lic.area, "quiz").quiz
         for i, q in enumerate(quiz.perguntas):
             quiz.vars[i].set(q["correta"])
             quiz.responder(i)
-        self.assertEqual(lab.estado.progresso.acertos(3), (3, 3))
+        self.assertEqual(lab.estado.progresso.acertos(3), (4, 4))
         lic.ir(1)
         self.raiz.update()
         self.assertTrue(lab.estado.progresso.concluida(3))

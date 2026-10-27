@@ -26,7 +26,8 @@ COR_PERTO, COR_MEIO, COR_LONGE = ZONAS["normal"][1], ZONAS["atencao"][1], ZONAS[
 
 
 def criar(janela) -> LicaoPassos:
-    funcoes = [passo1, passo2, passo3, passo4, passo5, passo6]
+    from lab.ui.passos_novos import passo_regularizacao
+    funcoes = [passo1, passo2, passo3, passo4, passo5, passo_regularizacao, passo6]
     passos = [Passo(t, f) for t, f in zip(T.L3_PASSOS, funcoes)]
 
     def concluir() -> None:

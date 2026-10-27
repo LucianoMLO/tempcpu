@@ -92,7 +92,7 @@ class TestInicio(BaseUI):
     def test_mostra_as_tres_licoes_e_a_faixa_de_dados_sinteticos(self):
         lab = self.novo_lab()
         t = self.texto_da_tela(lab)
-        for n in (1, 2, 3):
+        for n in (1, 2, 3, 4, 5):
             self.assertIn(T.LICOES[n][0], t)
         self.assertTrue(lab.faixa_visivel)
         self.assertIn("DADOS SINTÉTICOS", lab.faixa.cget("text"))
@@ -101,7 +101,7 @@ class TestInicio(BaseUI):
         lab = self.novo_lab()
         t = self.texto_da_tela(lab)
         self.assertEqual(t.count(T.LICAO_EM_BREVE), 0)
-        self.assertEqual(t.count(T.LICAO_NAO_INICIADA), 3)
+        self.assertEqual(t.count(T.LICAO_NAO_INICIADA), 5)
 
     def test_glossario_na_barra_inferior(self):
         lab = self.novo_lab()
@@ -206,7 +206,7 @@ class TestLicao1(BaseUI):
         self.assertEqual(lic.indice, 0)
         lic.mostrar(2)
         self.assertEqual(lic.btn_prox.cget("text"), T.BOTAO_PROXIMO)       # ainda há passos depois
-        lic.mostrar(5)
+        lic.mostrar(7)
         self.assertEqual(lic.btn_prox.cget("text"), T.BOTAO_CONCLUIR)
 
 
@@ -293,10 +293,10 @@ class TestLicao1Completa(BaseUI):
 
     def test_passo6_perguntas_placar_e_conclusao(self):
         lab, lic = self.abrir()
-        lic.mostrar(5)
+        lic.mostrar(7)
         self.raiz.update()
         quiz = achar_atributo(lic.area, "quiz").quiz
-        self.assertEqual(len(quiz.perguntas), 3)
+        self.assertEqual(len(quiz.perguntas), 5)
         quiz.responder(0)                                          # sem escolher: nada acontece
         self.assertEqual(quiz.respondidas, {})
         quiz.vars[0].set(1)
@@ -312,8 +312,11 @@ class TestLicao1Completa(BaseUI):
         self.assertFalse(quiz.respondidas[1])
         quiz.vars[2].set(1)
         quiz.responder(2)
-        self.assertEqual(quiz.placar.cget("text"), "Você acertou 2 de 3.")
-        self.assertEqual(lab.estado.progresso.acertos(1), (2, 3))
+        for i in (3, 4):                                           # as perguntas dos passos novos
+            quiz.vars[i].set(quiz.perguntas[i]["correta"])
+            quiz.responder(i)
+        self.assertEqual(quiz.placar.cget("text"), "Você acertou 4 de 5.")
+        self.assertEqual(lab.estado.progresso.acertos(1), (4, 5))
         self.assertEqual(str(quiz.botoes[0].cget("state")), "disabled")
         self.assertFalse(lab.estado.progresso.concluida(1))
         lic.ir(1)                                                  # "Concluir lição"
@@ -324,7 +327,7 @@ class TestLicao1Completa(BaseUI):
 
     def test_passo6_e_rolavel_quando_passa_da_altura(self):
         lab, lic = self.abrir()
-        lic.mostrar(5)
+        lic.mostrar(7)
 
         def convergiu() -> bool:                 # a rolagem se reajusta a cada 250 ms
             altura_regiao = int(str(lic.tela.cget("scrollregion")).split()[3])
@@ -336,10 +339,10 @@ class TestLicao1Completa(BaseUI):
     def test_todos_os_passos_cabem_numa_janela_menor_sem_erro(self):
         self.raiz.geometry("900x660+40+40")
         lab, lic = self.abrir()
-        for i in range(6):
+        for i in range(8):
             lic.mostrar(i)
             self.raiz.update()
-        self.assertEqual(lic.indice, 5)
+        self.assertEqual(lic.indice, 7)
 
 
 class TestEstadosDeTela(BaseUI):
