@@ -19,3 +19,8 @@ cloudflare/.wrangler/
 cloudflare/.dev.vars
 cloudflare/.npm-install.log
 cloudflare/banco/ativo.json
+
+# Executável (PyInstaller)
+build/
+dist/
+*.spec

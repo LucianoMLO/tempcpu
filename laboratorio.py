@@ -36,6 +36,9 @@ AUSENTE, PREPARANDO, PRONTO, FALHOU = "ausente", "preparando", "pronto", "falhou
 
 # ---------- caminhos ----------
 def pasta_app() -> Path:
+    """Onde estão `lab/` e `lab-requirements.txt`: ao lado do código-fonte ou dentro do pacote do executável."""
+    if getattr(sys, "frozen", False):
+        return Path(getattr(sys, "_MEIPASS", Path(sys.executable).parent))
     return Path(__file__).resolve().parent
 
 
@@ -101,7 +104,10 @@ def motivo_python_nao_suportado(versao=None, bits: int | None = None, plataforma
     plataforma = sys.platform if plataforma is None else plataforma
     congelado = bool(getattr(sys, "frozen", False)) if congelado is None else congelado
     if congelado:
-        return "Nesta versão o Laboratório precisa do Python instalado no computador; o app empacotado não o inclui."
+        if python_base() is None:
+            return ("O Laboratório precisa do Python 3.14 de 64 bits instalado no computador (o TempCPU empacotado não o inclui). "
+                    "Instale em python.org/downloads e abra o Laboratório de novo.")
+        return ""                       # o ambiente é criado com o Python instalado, que python_base() já validou
     if plataforma != "win32" or bits != 64:
         return "O Laboratório desta versão só funciona no Windows de 64 bits."
     if tuple(versao[:2]) != PYTHON_SUPORTADO:
@@ -110,8 +116,29 @@ def motivo_python_nao_suportado(versao=None, bits: int | None = None, plataforma
     return ""
 
 
+def _serve_para_criar_ambiente(py: Path) -> bool:
+    """Python 3.14 de 64 bits com venv e tkinter (o que o Laboratório exige)."""
+    try:
+        r = subprocess.run([str(py), "-c", "import sys, struct, venv, tkinter; "
+                            "raise SystemExit(0 if sys.version_info[:2] == (3, 14) and struct.calcsize('P') == 8 else 1)"],
+                           capture_output=True, timeout=20, creationflags=SEM_JANELA, stdin=subprocess.DEVNULL)
+        return r.returncode == 0
+    except (OSError, subprocess.TimeoutExpired):
+        return False
+
+
 def python_base() -> Path | None:
-    """Python que cria o ambiente: o da instalação (sys.base_prefix), nunca o venv do app."""
+    """Python que cria o ambiente: o da instalação (sys.base_prefix), nunca o venv do app.
+    No executável empacotado não há Python próprio: procura um Python 3.14 instalado (`py -0p` e PATH)."""
+    if getattr(sys, "frozen", False):
+        brutos = parse_py_0p(_py_0p())
+        no_path = shutil.which("python")
+        if no_path:
+            brutos.append(Path(no_path))
+        for p in brutos:
+            if _candidato_valido(p) and _serve_para_criar_ambiente(p):
+                return p
+        return None
     p = Path(sys.base_prefix) / "python.exe"
     return p if p.is_file() else None
 

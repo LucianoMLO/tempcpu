@@ -2,13 +2,15 @@
 from __future__ import annotations
 
 import ctypes
+import os
 import subprocess
 import sys
 import threading
 from pathlib import Path
 from typing import Callable
 
-PASTA = Path(__file__).resolve().parent
+EMPACOTADO = bool(getattr(sys, "frozen", False))          # rodando como TempCPU.exe (PyInstaller)
+PASTA = Path(sys.executable).resolve().parent if EMPACOTADO else Path(__file__).resolve().parent
 NOME_TAREFA = "TempCPU"
 SEM_JANELA = 0x08000000
 
@@ -29,6 +31,7 @@ class InstanciaUnica:
     """Mutex nomeado. A segunda cópia só avisa a primeira para abrir a janela e sai."""
 
     def __init__(self, nome: str = "TempCPU") -> None:
+        nome = os.environ.get("TEMPCPU_NOME_INSTANCIA") or nome      # só para testes: outra cópia ao lado da instalada
         self._nome_evento = f"Local\\{nome}_abrir"
         self._mutex = _k32.CreateMutexW(None, False, f"Local\\{nome}_mutex")
         self.primeira = ctypes.GetLastError() != ERRO_JA_EXISTE
@@ -88,8 +91,10 @@ def inicio_automatico_ativo() -> bool:
 
 
 def ativar_inicio_automatico() -> tuple[bool, str]:
+    acao = (f"-Execute '{sys.executable}' " if EMPACOTADO
+            else f"-Execute '{_pythonw()}' -Argument '\"{PASTA / 'app.py'}\"' ")
     script = (
-        f"$a = New-ScheduledTaskAction -Execute '{_pythonw()}' -Argument '\"{PASTA / 'app.py'}\"' "
+        f"$a = New-ScheduledTaskAction {acao}"
         f"-WorkingDirectory '{PASTA}';"
         "$t = New-ScheduledTaskTrigger -AtLogOn -User $env:USERNAME;"
         "$t.Delay = 'PT20S';"

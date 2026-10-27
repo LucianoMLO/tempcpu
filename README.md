@@ -74,6 +74,14 @@ copy .env.example .env
 ```
 </details>
 
+## Gerar o executável (para quem mantém o projeto)
+
+```powershell
+.venv\Scripts\pip install -r requirements-build.txt
+.venv\Scripts\python tools\gerar_executavel.py
+```
+Cria `dist\TempCPU\` (pasta pronta, ~50 MB) e `dist\TempCPU-<versão>-win64.zip` com o arquivo `.sha256`. O executável pede administrador ao abrir e **não é assinado**: o Windows pode avisar "O Windows protegeu o seu computador". O Laboratório continua opcional e usa o Python 3.14 instalado no computador.
+
 ## Usar
 
 - `iniciar.bat`: abre o app (ícone + janela) como administrador (exigido pela ACPI e pela ventoinha ASUS).

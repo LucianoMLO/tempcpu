@@ -67,7 +67,9 @@ class PythonSuportado(unittest.TestCase):
     def test_32_bits_e_outro_sistema_e_empacotado(self):
         self.assertTrue(lab.motivo_python_nao_suportado((3, 14, 0), 32, "win32", False))
         self.assertTrue(lab.motivo_python_nao_suportado((3, 14, 0), 64, "linux", False))
-        self.assertIn("empacotado", lab.motivo_python_nao_suportado((3, 14, 0), 64, "win32", True))
+        from unittest import mock
+        with mock.patch.object(lab, "python_base", return_value=None):      # empacotado e sem Python 3.14 instalado
+            self.assertIn("empacotado", lab.motivo_python_nao_suportado((3, 14, 0), 64, "win32", True))
 
 
 class ErrosDoPip(unittest.TestCase):
@@ -415,3 +417,48 @@ class Revisao(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestEmpacotado(unittest.TestCase):
+    """No TempCPU.exe não há Python próprio: o ambiente do Laboratório é criado com o Python 3.14 do computador."""
+
+    def test_sem_python_instalado_explica_como_resolver(self):
+        from unittest import mock
+        import laboratorio as L
+        with mock.patch.object(L, "python_base", return_value=None):
+            msg = L.motivo_python_nao_suportado(congelado=True)
+        self.assertIn("Python 3.14", msg)
+        self.assertIn("python.org", msg)
+
+    def test_com_python_instalado_serve(self):
+        from pathlib import Path
+        from unittest import mock
+        import laboratorio as L
+        with mock.patch.object(L, "python_base", return_value=Path("C:/Python314/python.exe")):
+            self.assertEqual(L.motivo_python_nao_suportado(congelado=True), "")
+
+    def test_pasta_do_app_empacotado_e_a_do_pacote(self):
+        import sys
+        from pathlib import Path
+        from unittest import mock
+        import laboratorio as L
+        with mock.patch.object(sys, "frozen", True, create=True), mock.patch.object(sys, "_MEIPASS", "C:/pacote/_internal", create=True):
+            self.assertEqual(L.pasta_app(), Path("C:/pacote/_internal"))
+
+    def test_python_base_empacotado_ignora_pythons_sem_o_que_o_laboratorio_precisa(self):
+        import sys
+        from pathlib import Path
+        from unittest import mock
+        import laboratorio as L
+        with mock.patch.object(sys, "frozen", True, create=True), \
+                mock.patch.object(L, "_py_0p", return_value=r"-V:3.14 * C:\Py\python.exe"), \
+                mock.patch.object(L.shutil, "which", return_value=None), \
+                mock.patch.object(L, "_candidato_valido", return_value=True), \
+                mock.patch.object(L, "_serve_para_criar_ambiente", side_effect=lambda p: str(p).endswith("python.exe")):
+            self.assertEqual(L.python_base(), Path(r"C:\Py\python.exe"))
+        with mock.patch.object(sys, "frozen", True, create=True), \
+                mock.patch.object(L, "_py_0p", return_value=r"-V:3.12 * C:\Py12\python.exe"), \
+                mock.patch.object(L.shutil, "which", return_value=None), \
+                mock.patch.object(L, "_candidato_valido", return_value=True), \
+                mock.patch.object(L, "_serve_para_criar_ambiente", return_value=False):
+            self.assertIsNone(L.python_base())

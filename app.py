@@ -24,7 +24,8 @@ from dicas import Dica, texto_dos_termos
 from tema import (BORDA, CARTAO, CINZA_ICONE, FONTE, FUNDO, GRADE, LINHA, PRIORIDADE, SUAVE, TEXTO, ZONAS,
                   br, cartao, zona_de)
 
-PASTA = Path(__file__).resolve().parent
+# empacotado (TempCPU.exe), o .env fica ao lado do executável; no código-fonte, ao lado do app.py
+PASTA = Path(sys.executable).resolve().parent if getattr(sys, "frozen", False) else Path(__file__).resolve().parent
 
 TJMAX_PADRAO = 105.0  # Ryzen 7 4800HS; usado só se o firmware não informar seus limites
 
