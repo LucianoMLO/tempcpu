@@ -54,6 +54,12 @@ Motivos e medições: [ADR 0002](docs/adr/0002-fontes-sem-driver-de-kernel.md) (
 
 Medido no Ryzen 7 4800HS, minimizado e gravando o histórico: cerca de **19 MB de RAM e 0,3% de um núcleo**. Com a janela aberta, ~40 MB. Com a janela minimizada o diagnóstico roda a cada 30 s (alimenta o histórico), o ícone é redesenhado a cada 6 s no máximo e a memória sem uso volta para o Windows a cada minuto. Só roda uma cópia por vez: abrir de novo apenas mostra a janela da que já está rodando.
 
+## Baixar (mais fácil)
+
+Baixe o `TempCPU-0.1-win64.zip` em [Releases](https://github.com/LucianoMLO/tempcpu/releases/latest), extraia (botão direito, **Extrair tudo**) e abra `TempCPU.exe`; clique em **Sim** quando o Windows perguntar. Não precisa instalar o Python (só para o Laboratório opcional). O programa **não é assinado**: o Windows pode avisar "O Windows protegeu o seu computador"; clique em *Mais informações* e *Executar assim mesmo*. Confira o arquivo pelo SHA-256 nas notas da versão.
+
+Se preferir rodar a partir do código, siga os passos abaixo.
+
 ## Instalar (passo a passo, sem precisar entender de programação)
 
 **Antes de começar:** o TempCPU ainda não tem instalador. Ele roda a partir dos arquivos deste projeto e precisa do **Python**, um programa gratuito. Funciona no **Windows 11**; foi testado só em notebook ASUS com processador AMD Ryzen. Em outros computadores pode mostrar menos informações.
